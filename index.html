@@ -1,184 +1,132 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="zh-CN">
 <head>
-<title>Likeflames的个人主页</title>
-<meta charset="utf-8" />
-<meta name="description" content="浙江大学电气工程学生个人网站 | 摄影 | 编程 | 旅行">
-<meta name="keywords" content="浙江大学,个人网站,摄影作品,前端开发">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<style>
-/* 通用样式 */
-body {
-    font-family: '微软雅黑', sans-serif;
-    line-height: 1.6;
-}
+    <title>Likeflames的个人主页</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="浙江大学电气工程学生个人网站 | 摄影 | 编程 | 旅行">
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+    /* 视频模块样式 */
+    #videos {
+        padding: 4rem 0;
+        background: #f8f9fa;
+    }
 
-/* 头部样式 */
-#header {
-    background: linear-gradient(135deg, #2c3e50, #3498db);
-    color: white;
-    padding: 4rem 0;
-    text-align: center;
-}
+    .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 1rem;
+    }
 
-.avatar {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 1.5rem;
-    border: 4px solid white;
-}
+    .video-wrapper {
+        position: relative;
+        padding-top: 56.25%; /* 16:9比例 */
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
 
-/* 作品集样式 */
-.portfolio-item {
-    margin: 1rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
+    .video-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
 
-.portfolio-item:hover {
-    transform: translateY(-5px);
-}
+    .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        height: 70px;
+        background: rgba(255,255,255,0.9);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+    }
 
-/* 视频模块 */
-#videos {
-    position: relative;
-    padding: 4rem 0;
-    background: #f8f9fa;
-}
+    .play-button i {
+        color: #2c3e50;
+        font-size: 28px;
+        margin-left: 5px;
+    }
 
-.scroll-container {
-    overflow-x: auto;
-    padding-bottom: 20px;
-}
-
-.video-list {
-    display: flex;
-    gap: 25px;
-    padding: 15px 30px;
-}
-
-.video-item {
-    flex: 0 0 560px;
-    height: 315px;
-    background: #000;
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.fullscreen-btn {
-    position: absolute;
-    right: 30px;
-    top: 20px;
-    padding: 12px 25px;
-    background: rgba(0,0,0,0.75);
-    color: #fff;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s;
-    z-index: 10;
-}
-
-/* 联系表单 */
-#contact form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.input-field {
-    margin-bottom: 1.5rem;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-}
-
-button[type="submit"] {
-    background: #3498db;
-    color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-/* 全屏模式样式 */
-.fullscreen-mask {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.97);
-    z-index: 9999;
-    padding: 40px;
-}
-
-.fullscreen-mask.active {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-</style>
+    /* 移动端优化 */
+    @media (max-width: 768px) {
+        .video-grid {
+            grid-template-columns: 1fr;
+        }
+        .play-button {
+            width: 50px;
+            height: 50px;
+        }
+    }
+    </style>
 </head>
 <body class="is-preload">
 
-<!-- 头部 -->
+<!-- 头部导航 -->
 <div id="header">
-    <div class="container">
-        <img src="images/avatar.jpg" class="avatar" alt="个人头像">
-        <h1>Likeflames</h1>
-        <p>浙江大学电气工程专业 | 摄影爱好者 | 前端开发学习者</p>
+    <div class="top">
+        <nav id="nav">
+            <ul>
+                <li><a href="#top" class="active"><span class="icon solid fa-home">首页</span></a></li>
+                <li><a href="#portfolio"><span class="icon solid fa-camera">摄影</span></a></li>
+                <li><a href="#videos"><span class="icon solid fa-video">视频</span></a></li>
+                <li><a href="#about"><span class="icon solid fa-user">关于</span></a></li>
+                <li><a href="#contact"><span class="icon solid fa-envelope">联系</span></a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="bottom">
+        <ul class="icons">
+            <li><a href="mailto:iamwujianhua@163.com" class="icon solid fa-envelope"><span class="label">邮箱</span></a></li>
+            <li><a href="https://github.com/likeflames" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+        </ul>
     </div>
 </div>
 
-<!-- 主要内容 -->
+<!-- 主内容 -->
 <div id="main">
-    <!-- 自我介绍 -->
-    <section id="about" class="two">
+    <!-- 首页 -->
+    <section id="top" class="one dark cover">
         <div class="container">
-            <h2>关于我</h2>
-            <div class="bio-content">
-                <p>浙江大学电气工程专业大三学生，热爱技术开发与视觉艺术创作。掌握Python/JavaScript开发，擅长用镜头记录生活中的美好瞬间。</p>
-                <h3>技能标签</h3>
-                <div class="skill-tags">
-                    <span>Python开发</span>
-                    <span>前端开发</span>
-                    <span>摄影后期</span>
-                    <span>嵌入式开发</span>
-                </div>
-            </div>
+            <header>
+                <h2>你好，我是Likeflames</h2>
+                <p>浙江大学电气工程专业 | 摄影爱好者 | 技术开发者</p>
+            </header>
         </div>
     </section>
 
     <!-- 摄影作品 -->
-    <section id="portfolio" class="three">
+    <section id="portfolio" class="two">
         <div class="container">
-            <h2>摄影作品</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="images/photo1.jpg" alt="西湖暮色">
+            <header>
+                <h2>摄影作品</h2>
+                <p>用镜头记录校园生活</p>
+            </header>
+            <div class="row">
+                <div class="col-4 col-12-mobile">
+                    <article class="item">
+                        <img src="images/photo1.jpg" alt="校园风光" />
+                    </article>
                 </div>
-                <div class="portfolio-item">
-                    <img src="images/photo2.jpg" alt="城市夜景">
-                </div>
-                <!-- 更多作品... -->
+                <!-- 其他摄影作品 -->
             </div>
         </div>
     </section>
 
-    <!-- 视频作品 -->
+    <!-- 视频模块 -->
     <section id="videos" class="four">
         <div class="container">
             <header>
@@ -207,57 +155,56 @@ button[type="submit"] {
     </section>
 
     <!-- 联系表单 -->
-    <section id="contact" class="five">
+    <section id="contact" class="four">
         <div class="container">
-            <h2>联系我</h2>
-            <form action="https://formspree.io/f/mldgpbyr" method="POST">
-                <div class="input-field">
-                    <input type="text" name="name" placeholder="姓名" required>
+            <header>
+                <h2>联系我</h2>
+            </header>
+            <form method="POST" action="https://formspree.io/f/mldgpbyr">
+                <div class="row gtr-uniform">
+                    <div class="col-6 col-12-mobile">
+                        <input type="text" name="name" placeholder="姓名" required>
+                    </div>
+                    <div class="col-6 col-12-mobile">
+                        <input type="email" name="email" placeholder="邮箱" required>
+                    </div>
+                    <div class="col-12">
+                        <textarea name="message" placeholder="留言内容" rows="4" required></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="button primary">发送消息</button>
+                    </div>
                 </div>
-                <div class="input-field">
-                    <input type="email" name="email" placeholder="电子邮箱" required>
-                </div>
-                <div class="input-field">
-                    <textarea name="message" rows="5" placeholder="留言内容" required></textarea>
-                </div>
-                <button type="submit">发送消息</button>
             </form>
         </div>
     </section>
 </div>
 
-<!-- 全屏蒙版 -->
-<div class="fullscreen-mask" onclick="toggleFullscreen()">
-    <div class="fullscreen-content"></div>
-</div>
-
+<!-- 脚本 -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
 <script>
-// 全屏功能
-function toggleFullscreen() {
-    const mask = document.querySelector('.fullscreen-mask');
-    const content = document.querySelector('.fullscreen-content');
+// 视频加载控制
+function loadVideo(button) {
+    const wrapper = button.parentElement;
+    const iframe = wrapper.querySelector('iframe');
     
-    if (mask.classList.contains('active')) {
-        mask.classList.remove('active');
-        content.innerHTML = '';
-    } else {
-        mask.classList.add('active');
-        content.innerHTML = document.querySelector('.video-list').outerHTML;
-        content.querySelector('.video-list').style.cssText = `
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 30px;
-            gap: 30px;
-        `;
-        content.querySelectorAll('.video-item').forEach(item => {
-            item.style.width = '45%';
-            item.style.height = 'auto';
-            item.style.aspectRatio = '16/9';
-        });
+    // 动态加载视频
+    if (!iframe.src) {
+        iframe.src = iframe.dataset.src;
     }
+    
+    // 隐藏播放按钮
+    button.style.opacity = '0';
+    setTimeout(() => button.style.display = 'none', 300);
+    
+    // 添加激活状态
+    wrapper.classList.add('video-active');
 }
 
-// 表单提交
+// 表单提交处理
 document.querySelector('form').addEventListener('submit', function(e) {
     e.preventDefault();
     const formData = new FormData(this);
@@ -271,17 +218,19 @@ document.querySelector('form').addEventListener('submit', function(e) {
         alert('消息已成功发送！');
         this.reset();
     })
-    .catch(() => alert('发送失败，请稍后重试'));
+    .catch(() => alert('发送失败，请检查网络连接'));
 });
 
 // 响应式调整
-window.addEventListener('resize', () => {
-    if (window.innerWidth < 768) {
-        document.querySelectorAll('.video-item').forEach(item => {
-            item.style.flexBasis = '90%';
-        });
-    }
-});
+function adjustVideoHeight() {
+    document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+        const width = wrapper.offsetWidth;
+        wrapper.style.height = width * 0.5625 + 'px'; // 16:9比例
+    });
+}
+
+window.addEventListener('resize', adjustVideoHeight);
+adjustVideoHeight();
 </script>
 </body>
 </html>
