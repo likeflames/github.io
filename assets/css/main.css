@@ -2631,3 +2631,8 @@ input, select, textarea {
 				}
 
 	}
+#nav ul li a.active {
+    background: rgba(255, 165, 0, 0.2) !important;
+    border-left: 3px solid orange !important;
+    color: white !important;
+}
