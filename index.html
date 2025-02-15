@@ -12,7 +12,34 @@
     html {
         scroll-behavior: smooth;
     }
+    <style>
+/* ▼▼▼ 复制这段到<head>标签内 ▼▼▼ */
+.video-wall {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 自动网格布局 */
+    gap: 15px;
+    padding: 20px;
+    background: #000;
+}
 
+.video-item {
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 鼠标悬停放大效果 */
+.video-item:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+/* 手机显示2列 */
+@media (max-width: 768px) {
+    .video-wall { grid-template-columns: repeat(2, 1fr); }
+}
+/* ▲▲▲ 复制结束 ▲▲▲ */
+</style>
     /* 视频模块高级样式 */
     .video-section {
         background: #f8f9fa;
