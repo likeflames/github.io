@@ -2709,3 +2709,14 @@ input, select, textarea {
 .video-card:hover {
     transform: scale(1.05); /* 悬停放大效果 */
 }
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr); /* 手机显示2列 */
+        gap: 10px;
+        padding: 10px;
+    }
+    .video-info h3 {
+        font-size: 14px; /* 缩小标题字号 */
+    }
+}
+
