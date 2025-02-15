@@ -2636,3 +2636,13 @@ input, select, textarea {
     border-left: 3px solid orange !important;
     color: white !important;
 }
+.skill-tags { margin-top: 20px; }
+.tag {
+    display: inline-block;
+    background: rgba(255,165,0,0.15);
+    color: #FFA500;
+    padding: 5px 12px;
+    border-radius: 15px;
+    margin: 5px 3px;
+    font-size: 0.9em;
+}
