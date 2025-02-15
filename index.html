@@ -230,14 +230,17 @@ function toggleFullscreen() {
     const mask = document.querySelector('.fullscreen-mask');
     const content = document.querySelector('.fullscreen-content');
     
-    isFullscreen = !isFullscreen;
-    mask.classList.toggle('active', isFullscreen);
-    
-    if(isFullscreen) {
+    if (mask.style.display === 'block') {
+        mask.style.display = 'none';
+        content.innerHTML = ''; 
+    } else {
+        mask.style.display = 'block';
         content.innerHTML = document.querySelector('.video-list').outerHTML;
-        content.querySelector('.video-list').style.width = '100%';
+        content.querySelector('.video-list').style.flexWrap = 'wrap';
+        content.querySelector('.video-item').style.width = '30%';
     }
 }
+
 
 // 表单提交
 document.querySelector('form').addEventListener('submit', function(e) {
