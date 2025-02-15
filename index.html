@@ -1,147 +1,267 @@
 <!DOCTYPE HTML>
 <!--
-	Prologue by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Likeflames的个人主页</title>
-		<meta charset="utf-8" />
-		<!-- ✅ 添加SEO优化 -->
-		<meta name="description" content="浙江大学电气工程学生个人网站 | 摄影 | 编程 | 旅行">
-		<meta name="keywords" content="浙江大学,个人网站,摄影作品,前端开发">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<head>
+<title>Likeflames的个人主页</title>
+<meta charset="utf-8" />
+<meta name="description" content="浙江大学电气工程学生个人网站 | 摄影 | 编程 | 旅行">
+<meta name="keywords" content="浙江大学,个人网站,摄影作品,前端开发">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="assets/css/main.css" />
+<style>
+/* 新增视频模块样式 */
+.scroll-container {
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
 
-		<!-- Header -->
-			<div id="header">
-				<div class="top">
-					<!-- Logo -->
-						<div id="logo">
-							<!-- ✅ 替换头像 -->
-							<span class="image avatar48"><img src="images/avatar.jpg" alt="我的头像" /></span>
-							<h1 id="title">Likeflames</h1>
-							<p>浙江大学<br />电气工程及其自动化</p>
-						</div>
+.video-list {
+    display: flex;
+    gap: 20px;
+    padding: 15px 0;
+}
 
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<!-- ✅ 修复导航激活状态 -->
-								<li><a href="#top" class="active" id="top-link"><span class="icon solid fa-home">自我介绍</span></a></li>
-								<li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">摄影</span></a></li>
-								<li><a href="#about" id="about-link"><span class="icon solid fa-user">关于我</span></a></li>
-								<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">留言板</span></a></li>
-							</ul>
-						</nav>
-				</div>
+.video-item {
+    flex: 0 0 560px;
+    height: 315px;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
-				<div class="bottom">
-					<!-- Social Icons -->
-						<ul class="icons">
-							<!-- ✅ 修复邮箱链接 -->
-							<li><a href="mailto:iamwujianhua@163.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-							<!-- ✅ 建议添加更多链接 -->
-							<li><a href="https://github.com/likeflames" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						</ul>
-				</div>
-			</div>
+.video-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
 
-		<!-- Main -->
-			<div id="main">
-				<!-- Intro -->
-					<section id="top" class="one dark cover">
-						<div class="container">
-							<header>
-								<h2 class="alt">你好！我是<strong>Likeflames</strong></h2>
-								<p>浙江大学电气工程学生 | 摄影爱好者 | 前端开发学习者</p>
-							</header>
-							<footer>
-								<a href="#portfolio" class="button scrolly">查看我的作品</a>
-							</footer>
-						</div>
-					</section>
+.fullscreen-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-				<!-- Portfolio -->
-					<section id="portfolio" class="two">
-						<div class="container">
-							<header>
-								<h2>摄影作品</h2>
-							</header>
-							<p>记录校园生活与旅途风景</p>
-							<div class="row">
-								<!-- 替换图片和描述 -->
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/photo1.jpg" alt="紫金港晚霞" /></a>
-										<header>
-											<h3>紫金港晚霞</h3>
-										</header>
-									</article>
-								</div>
-								<!-- 其他图片类似修改 -->
-							</div>
-						</div>
-					</section>
+.fullscreen-btn:hover {
+    background: #fff;
+}
 
-				<!-- About Me -->
-					<section id="about" class="three">
-						<div class="container">
-							<header>
-								<h2>关于我</h2>
-							</header>
-							<!-- ✅ 替换展示图片 -->
-							<a href="#" class="image featured"><img src="images/about-me.jpg" alt="我的生活照" /></a>
-							<p>浙江大学电气工程专业大一学生，热爱摄影，喜欢用镜头记录校园生活</p>
-						</div>
-					</section>
+.fullscreen-mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
 
-				<!-- Contact -->
-					<section id="contact" class="four">
-						<div class="container">
-							<header>
-								<h2>留言板</h2>
-							</header>
-							<p>欢迎交流摄影技巧或开发问题</p>
-							<!-- ✅ 表单功能实现 -->
-							<form method="post" action="https://formspree.io/f/你的表单ID">
-								<div class="row">
-									<div class="col-6 col-12-mobile">
-										<input type="text" name="name" placeholder="姓名" required>
-									</div>
-									<div class="col-6 col-12-mobile">
-										<input type="email" name="email" placeholder="邮箱" required>
-									</div>
-									<div class="col-12">
-										<textarea name="message" placeholder="留言内容" rows="4"></textarea>
-									</div>
-									<div class="col-12">
-										<button type="submit" class="button primary">发送消息</button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</section>
-			</div>
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<!-- ✅ 表单提交提示 -->
-			<script>
-				document.querySelector('form').addEventListener('submit', function(e) {
-					e.preventDefault();
-					fetch(this.action, { method: 'POST', body: new FormData(this) })
-						.then(() => alert('消息已发送！'))
-						.catch(() => alert('发送失败，请检查网络'));
-				});
-			</script>
-	</body>
+.fullscreen-mask.active {
+    display: flex;
+}
+
+.fullscreen-content {
+    width: 90%;
+    height: 80%;
+}
+</style>
+</head>
+<body class="is-preload">
+
+<!-- Header -->
+<div id="header">
+<div class="top">
+<div id="logo">
+<span class="image avatar48"><img src="images/avatar.jpg" alt="我的头像" /></span>
+<h1 id="title">Likeflames</h1>
+<p>浙江大学<br />电气工程及其自动化</p>
+</div>
+
+<nav id="nav">
+<ul>
+<li><a href="#top" class="active" id="top-link"><span class="icon solid fa-home">自我介绍</span></a></li>
+<li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">摄影</span></a></li>
+<li><a href="#videos" id="videos-link"><span class="icon solid fa-video">视频</span></a></li>
+<li><a href="#about" id="about-link"><span class="icon solid fa-user">关于我</span></a></li>
+<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">留言板</span></a></li>
+</ul>
+</nav>
+</div>
+
+<div class="bottom">
+<ul class="icons">
+<li><a href="mailto:iamwujianhua@163.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+<li><a href="https://github.com/likeflames" class="icon brands fa-github"><span class="label">Github</span></a></li>
+</ul>
+</div>
+</div>
+
+<!-- Main -->
+<div id="main">
+<!-- Intro -->
+<section id="top" class="one dark cover">
+<div class="container">
+<header>
+<h2 class="alt">你好！我是<strong>Likeflames</strong></h2>
+<p>浙江大学电气工程学生 | 摄影爱好者 | 前端开发学习者</p>
+</header>
+<footer>
+<a href="#portfolio" class="button scrolly">查看我的作品</a>
+</footer>
+</div>
+</section>
+
+<!-- 摄影作品 -->
+<section id="portfolio" class="two">
+<div class="container">
+<header>
+<h2>摄影作品</h2>
+</header>
+<p>记录校园生活与旅途风景</p>
+<div class="row">
+<div class="col-4 col-12-mobile">
+<article class="item">
+<a href="#" class="image fit"><img src="images/photo1.jpg" alt="紫金港晚霞" /></a>
+<header>
+<h3>紫金港晚霞</h3>
+</header>
+</article>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 视频板块 -->
+<section id="videos" class="three">
+<div class="container">
+<header>
+<h2>视频作品</h2>
+<button class="fullscreen-btn" onclick="toggleFullscreen()">全屏浏览</button>
+</header>
+<div class="scroll-container">
+<div class="video-list">
+<div class="video-item">
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=112925461316658&bvid=BV1eaY4ekEDJ&cid=500001642407019&p=1"></iframe>
+</div>
+<div class="video-item">
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=112935326254132&bvid=BV1y3YLe4E5W&cid=500001644343583&p=1"></iframe>
+</div>
+<div class="video-item">
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114000142538836&bvid=BV13EKwecEKa&cid=28381679039&p=1"></iframe>
+</div>
+<div class="video-item">
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113339472551752&bvid=BV1jPyaYiEoN&cid=26380207508&p=1"></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- About Me -->
+<section id="about" class="four">
+<div class="container">
+<header>
+<h2>关于我</h2>
+</header>
+<a href="#" class="image featured"><img src="images/about-me.jpg" alt="我的生活照" /></a>
+<p>浙江大学电气工程专业大一学生，热爱摄影，喜欢用镜头记录校园生活</p>
+</div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="five">
+<div class="container">
+<header>
+<h2>留言板</h2>
+</header>
+<p>欢迎交流摄影技巧或开发问题</p>
+<form method="post" action="https://formspree.io/f/你的表单ID">
+<div class="row">
+<div class="col-6 col-12-mobile">
+<input type="text" name="name" placeholder="姓名" required>
+</div>
+<div class="col-6 col-12-mobile">
+<input type="email" name="email" placeholder="邮箱" required>
+</div>
+<div class="col-12">
+<textarea name="message" placeholder="留言内容" rows="4"></textarea>
+</div>
+<div class="col-12">
+<button type="submit" class="button primary">发送消息</button>
+</div>
+</div>
+</form>
+</div>
+</section>
+</div>
+
+<!-- 全屏蒙版 -->
+<div class="fullscreen-mask" onclick="toggleFullscreen()">
+<div class="fullscreen-content"></div>
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+// 全屏功能
+let isFullscreen = false;
+
+function toggleFullscreen() {
+    const mask = document.querySelector('.fullscreen-mask');
+    const content = document.querySelector('.fullscreen-content');
+    
+    isFullscreen = !isFullscreen;
+    mask.classList.toggle('active', isFullscreen);
+    
+    if(isFullscreen) {
+        content.innerHTML = document.querySelector('.video-list').outerHTML;
+        content.querySelector('.video-list').style.width = '100%';
+    }
+}
+
+// 表单提交
+document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    fetch(this.action, { 
+        method: 'POST', 
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+    })
+    .then(() => alert('消息已发送！'))
+    .catch(() => alert('发送失败，请检查网络'));
+});
+
+// 自动调整视频高度
+function adjustVideoHeight() {
+    const videos = document.querySelectorAll('.video-item');
+    videos.forEach(video => {
+        const width = video.offsetWidth;
+        video.style.height = width * 0.5625 + 'px';
+    });
+}
+
+window.addEventListener('resize', adjustVideoHeight);
+adjustVideoHeight();
+</script>
+</body>
 </html>
