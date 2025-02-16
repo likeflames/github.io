@@ -296,21 +296,13 @@ document.querySelectorAll('#nav a').forEach(link => {
         const targetSection = document.querySelector(targetId);
 
         if (targetSection) {
-            // 移除所有激活状态
             document.querySelectorAll('#nav a').forEach(a => a.classList.remove('active'));
-            // 添加当前激活状态
             this.classList.add('active');
 
-            // 获取导航栏高度
             const headerHeight = document.getElementById('header').offsetHeight;
-            // 计算目标位置（减去导航栏高度）
             const targetPosition = targetSection.offsetTop - headerHeight;
 
-            // 平滑滚动到目标位置
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
         }
     });
 });
@@ -320,12 +312,10 @@ window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY + document.getElementById('header').offsetHeight;
     document.querySelectorAll('section').forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        // 判断当前显示的 section
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        if (scrollPosition >= sectionTop - 100) {
+            const id = section.getAttribute('id');
             document.querySelectorAll('#nav a').forEach(a => {
-                a.classList.toggle('active', a.getAttribute('href') === `#${sectionId}`);
+                a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
             });
         }
     });
