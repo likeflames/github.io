@@ -120,6 +120,39 @@
         color: var(--accent);
     }
 
+    /* 全屏模式下的样式 */
+    :fullscreen .video-grid {
+        padding: 2rem;
+        background: var(--light-bg);
+    }
+
+    :fullscreen .video-card {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    :fullscreen .video-title {
+        font-size: 1.2em;
+    }
+
+    /* 全屏按钮样式 */
+    .button.small {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        background: var(--accent);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+            border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .button.small:hover {
+        background: darken(var(--accent), 10%);
+    }
+        
     /* 全屏模式 */
     .fullscreen-mode {
         background: rgba(255,255,255,0.98);
@@ -134,13 +167,12 @@
 
     /* 响应式设计 */
     @media (max-width: 768px) {
-        .video-title {
-            font-size: 1em;
-            margin-top: 0.8rem;
+        .video-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
         }
-        .video-tip {
+        .video-title {
             font-size: 0.8em;
-            margin-top: 1.5rem;
         }
     }
     </style>
@@ -343,16 +375,48 @@ window.addEventListener('scroll', () => {
 
 // 全屏控制
 function toggleFullscreen() {
-    const container = document.getElementById('fullscreen-container');
-    if (container.style.display === 'none') {
-        container.style.display = 'block';
-        container.querySelector('.video-grid').innerHTML = document.querySelector('.video-grid').innerHTML;
-        document.body.style.overflow = 'hidden';
+    const videoGrid = document.querySelector('.video-grid');
+
+    if (!document.fullscreenEnabled) {
+        alert('您的浏览器不支持全屏模式，请使用现代浏览器（如 Chrome、Firefox、Edge）访问。');
+        return;
+    }
+    
+    // 检查当前是否已经是全屏模式
+    if (!document.fullscreenElement) {
+        // 进入全屏模式
+        if (videoGrid.requestFullscreen) {
+            videoGrid.requestFullscreen();
+        } else if (videoGrid.mozRequestFullScreen) { // Firefox
+            videoGrid.mozRequestFullScreen();
+        } else if (videoGrid.webkitRequestFullscreen) { // Chrome, Safari, Opera
+            videoGrid.webkitRequestFullscreen();
+        } else if (videoGrid.msRequestFullscreen) { // IE/Edge
+            videoGrid.msRequestFullscreen();
+        }
     } else {
-        container.style.display = 'none';
-        document.body.style.overflow = 'auto';
+        // 退出全屏模式
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { // Firefox
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { // Chrome, Safari, Opera
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { // IE/Edge
+            document.msExitFullscreen();
+        }
     }
 }
+
+// 监听全屏变化事件，更新按钮状态
+document.addEventListener('fullscreenchange', () => {
+    const fullscreenButton = document.querySelector('.button.small');
+    if (document.fullscreenElement) {
+        fullscreenButton.innerHTML = '<i class="fas fa-compress"></i> 退出全屏';
+    } else {
+        fullscreenButton.innerHTML = '<i class="fas fa-expand"></i> 全屏浏览';
+    }
+});
 
 // 视频交互
 document.querySelectorAll('.video-card').forEach(card => {
