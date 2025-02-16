@@ -120,12 +120,6 @@
         color: var(--accent);
     }
 
-    /* 全屏模式 */
-    .fullscreen-mode {
-        background: rgba(255,255,255,0.98);
-        backdrop-filter: blur(10px);
-    }
-
     /* 导航栏激活状态 */
     #nav li a.active {
         color: var(--accent) !important;
@@ -207,9 +201,6 @@
         <div class="container">
             <header>
                 <h2>视频作品</h2>
-                <button class="button small" onclick="toggleFullscreen()">
-                    <i class="fas fa-expand"></i> 全屏浏览
-                </button>
             </header>
             <div class="video-grid">
                 <div class="video-card-container">
@@ -296,17 +287,6 @@
     </section>
 </div>
 
-<!-- 全屏容器 -->
-<div id="fullscreen-container" class="fullscreen-mode" style="display: none;">
-    <div class="fullscreen-header">
-        <h2>视频作品</h2>
-        <div class="close-fullscreen" onclick="toggleFullscreen()">
-            <i class="fas fa-times"></i>
-        </div>
-    </div>
-    <div class="video-grid"></div>
-</div>
-
 <script>
 // 平滑滚动
 document.querySelectorAll('#nav a').forEach(link => {
@@ -340,19 +320,6 @@ window.addEventListener('scroll', () => {
         }
     });
 });
-
-// 全屏控制
-function toggleFullscreen() {
-    const container = document.getElementById('fullscreen-container');
-    if (container.style.display === 'none') {
-        container.style.display = 'block';
-        container.querySelector('.video-grid').innerHTML = document.querySelector('.video-grid').innerHTML;
-        document.body.style.overflow = 'hidden';
-    } else {
-        container.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-}
 
 // 视频交互
 document.querySelectorAll('.video-card').forEach(card => {
