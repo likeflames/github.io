@@ -2524,10 +2524,11 @@ input, select, textarea {
 					}
 
 			body.header-visible #main {
-				-moz-transform: translateX(275px);
-				-webkit-transform: translateX(275px);
-				-ms-transform: translateX(275px);
-				transform: translateX(275px);
+    				margin-left: 275px;
+    				-moz-transform: none !important;
+    				-webkit-transform: none !important;
+    				-ms-transform: none !important;
+   				 transform: none !important;
 			}
 
 			body.header-visible #headerToggle {
