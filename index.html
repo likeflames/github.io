@@ -222,6 +222,64 @@
             font-size: 0.8em;
         }
     }
+    /* 摄影部分样式 */
+        #portfolio {
+            padding: 4rem 0;
+            background: var(--light-bg);
+        }
+
+        #portfolio .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        #portfolio .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        #portfolio .item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #portfolio .item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px var(--shadow);
+        }
+
+        #portfolio .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        #portfolio .item:hover img {
+            opacity: 0.8;
+        }
+
+        #portfolio .item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #portfolio .item:hover .caption {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="is-preload">
@@ -264,47 +322,53 @@
     </section>
 
     <!-- 摄影作品 -->
-    <section id="portfolio" class="two">
-        <div class="container">
-            <header>
-                <h2>摄影作品</h2>
-                <p>用镜头记录校园生活</p>
-            </header>
-            <div class="row">
-                <div class="col-4 col-12-mobile">
-                    <article class="item">
-                        <img src="images/pic02.jpg" alt="校园秋色" class="zoom-effect"/>
-                    </article>
+        <section id="portfolio" class="two">
+            <div class="container">
+                <header>
+                    <h2>摄影作品</h2>
+                    <p>用镜头记录校园生活</p>
+                </header>
+                <div class="row">
+                    <div class="col-4 col-12-mobile">
+                        <article class="item">
+                            <img src="images/pic02.jpg" alt="校园秋色" class="zoom-effect" />
+                            <div class="caption">校园秋色</div>
+                        </article>
+                    </div>
+                    <div class="col-4 col-12-mobile">
+                        <article class="item">
+                            <img src="images/pic03.jpg" alt="校园秋色" class="zoom-effect" />
+                            <div class="caption">校园秋色</div>
+                        </article>
+                    </div>
+                    <div class="col-4 col-12-mobile">
+                        <article class="item">
+                            <img src="images/pic04.jpg" alt="校园秋色" class="zoom-effect" />
+                            <div class="caption">校园秋色</div>
+                        </article>
+                    </div>
+                    <div class="col-4 col-12-mobile">
+                        <article class="item">
+                            <img src="images/pic05.jpg" alt="校园秋色" class="zoom-effect" />
+                            <div class="caption">校园秋色</div>
+                        </article>
+                    </div>
+                    <div class="col-4 col-12-mobile">
+                        <article class="item">
+                            <img src="images/pic06.jpg" alt="校园秋色" class="zoom-effect" />
+                            <div class="caption">校园秋色</div>
+                        </article>
+                    </div>
+                    <div class="col-4 col-12-mobile">
+                        <article class="item">
+                            <img src="images/pic07.jpg" alt="校园秋色" class="zoom-effect" />
+                            <div class="caption">校园秋色</div>
+                        </article>
+                    </div>
+                    <!-- 其他图片保持相同结构 -->
                 </div>
-                <div class="col-4 col-12-mobile">
-                    <article class="item">
-                        <img src="images/pic03.jpg" alt="校园秋色" class="zoom-effect"/>
-                    </article>
-                </div>
-                <div class="col-4 col-12-mobile">
-                    <article class="item">
-                        <img src="images/pic04.jpg" alt="校园秋色" class="zoom-effect"/>
-                    </article>
-                </div>
-                <div class="col-4 col-12-mobile">
-                    <article class="item">
-                        <img src="images/pic05.jpg" alt="校园秋色" class="zoom-effect"/>
-                    </article>
-                </div>
-                <div class="col-4 col-12-mobile">
-                    <article class="item">
-                        <img src="images/pic06.jpg" alt="校园秋色" class="zoom-effect"/>
-                    </article>
-                </div>
-                <div class="col-4 col-12-mobile">
-                    <article class="item">
-                        <img src="images/pic07.jpg" alt="校园秋色" class="zoom-effect"/>
-                    </article>
-                </div>
-                <!-- 其他图片保持相同结构 -->
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- 视频模块 -->
     <section id="videos" class="three video-section">
