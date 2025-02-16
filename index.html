@@ -14,33 +14,16 @@
     }
     /* 新增样式 */
     .video-title {
-        position: relative;
-        margin: 10px auto 0;
-        text-align: center;
-        color: #333;
-        font-size: 16px;
-        font-weight: 500;
-        width: 90%;
-        padding: 8px 0;
-        border-bottom: 1px solid #eee;
+          width: 100%;            /* 与视频同宽<a target="_blank" href="https://zhidao.baidu.com/question/1615821126413386027.html" class="hitref" data-title="网页设计视频怎么居中 - 百度知道" data-snippet='1、使用CSS样式：在CSS中，用户将margin设置为auto并将display属性设置为block，可以使网页设计视频在水平方向上居中。2、使用HTML标记：在HTML中，用户将align属...' data-url="https://zhidao.baidu.com/question/1615821126413386027.html">3</a> */
+          text-align: center;     /* 文字水平居中<a target="_blank" href="https://worktile.com/kb/ask/800380.html" class="hitref" data-title="web前端标题怎么居中 • Worktile社区" data-snippet='要实现网页前端标题居中,可以使用CSS来设置文本的对齐方式。具体的方法如下: 在CSS样式表中找到标题的选择器,可以是、等标签,也可以是通过class或id属性来选择...' data-url="https://worktile.com/kb/ask/800380.html">7</a> */
+          padding: 12px 0;        /* 垂直间距 */
+          background: inherit;    /* 继承容器背景色 */
+          color: #333;            /* 文字颜色 */
+          margin-top: -4px;       /* 消除iframe默认间距 */
     }
     /* 新增父级定位 */
     .video-card {
         position: relative; /* 关键修复点<a target="_blank" href="https://blog.csdn.net/huang3513/article/details/144977046" class="hitref" data-title="为什么页面无法正确显示?都有哪些HTML和CSS相关问题?" data-snippet='页面无法正确显示可能由多种原因导致,通常与HTML和CSS的结构、语法错误、浏览器兼容性、资源加载等问题有关。以下是一些常见的原因及其解决方法,结合实际项目代...' data-url="https://blog.csdn.net/huang3513/article/details/144977046">6</a> */
-    }
-
-    .video-title {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 1.5rem;
-        margin: 0;
-        color: var(--text);
-        font: 500 1.4em/1.2 'Microsoft YaHei', sans-serif;
-        background: linear-gradient(transparent 0%, rgba(0,0,0,0.8) 100%);
-        z-index: 10;
-        transition: opacity 0.3s;
     }
     .module-tip {
         position: absolute;
@@ -76,16 +59,6 @@
         background: #f8f9fa;
         padding: 4rem 0;
     }
-
-    .video-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
-    }
-
     .video-card {
         position: relative;
         border-radius: 12px;
@@ -107,10 +80,6 @@
         object-fit: cover;
         transition: opacity 0.3s ease;
     }
-    .video-card:hover .video-iframe {
-        opacity: 1;
-    }
-
     /* 全屏模式 */
     .fullscreen-mode {
         position: fixed;
@@ -242,7 +211,14 @@
         transition: opacity 0.3s;
         z-index: 5;
     }
-
+    .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
     .video-card:hover .video-iframe {
         opacity: 1;
     }
@@ -256,6 +232,13 @@
         font-size: 0.9em;
         opacity: 0.8;
         z-index: 100;
+    }
+    .video-container {
+          position: relative;
+          display: flex;          /* 启用弹性布局<a target="_blank" href="https://blog.csdn.net/sinat_34896766/article/details/136399969" class="hitref" data-title="css实现居中_css视频居中-CSDN博客" data-snippet='css实现居中的几种方式: 1、flex布局(水平垂直) .box { width: 200px; height: 200px; background-color: pink; display: flex; justify-content: center; align-items: cent...' data-url="https://blog.csdn.net/sinat_34896766/article/details/136399969">5</a> */
+          flex-direction: column; /* 垂直排列子元素 */
+          align-items: center;    /* 水平居中<a target="_blank" href="https://blog.csdn.net/sinat_34896766/article/details/136399969" class="hitref" data-title="css实现居中_css视频居中-CSDN博客" data-snippet='css实现居中的几种方式: 1、flex布局(水平垂直) .box { width: 200px; height: 200px; background-color: pink; display: flex; justify-content: center; align-items: cent...' data-url="https://blog.csdn.net/sinat_34896766/article/details/136399969">5</a> */
+          background: inherit;    /* 继承父级背景色 */
     }
     </style>
 </head>
