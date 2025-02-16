@@ -73,30 +73,57 @@
         opacity: 1;
     }
 
+    /* 新增：标题装饰线 */
+    .video-title::after {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 2px;
+        background: var(--accent);
+        margin: 0.8rem auto;
+        opacity: 0.7;
+    }
+
+    /* 新增：外部标题容器 */
+    .video-card-container {
+        position: relative;
+        margin-bottom: 2.5rem;
+    }
+
+    /* 修改：标题移至卡片外部 */
     .video-title {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 1.2rem;
-        margin: 0;
-        color: white;
+        margin-top: 1rem;
+        color: var(--text);
         font-size: 1.1em;
-        background: linear-gradient(transparent, rgba(0,0,0,0.7));
-        z-index: 2;
+        text-align: center;
+        line-height: 1.4;
+        padding: 0 1rem;
+        font-weight: 500;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    /* 修改：提示文字样式 */
+    .video-tip {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 0.9em;
+        color: #95a5a6;
+        letter-spacing: 1px;
+        opacity: 0.8;
+        position: relative;
+        padding-bottom: 1rem;
+    }
+
+    /* 新增：卡片悬停时标题效果 */
+    .video-card:hover + .video-title {
+        color: var(--accent);
     }
 
     /* 全屏模式 */
     .fullscreen-mode {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
         background: rgba(255,255,255,0.98);
-        z-index: 1000;
-        padding: 2rem;
-        overflow-y: auto;
+        backdrop-filter: blur(10px);
     }
 
     /* 导航栏激活状态 */
@@ -107,17 +134,13 @@
 
     /* 响应式设计 */
     @media (max-width: 768px) {
-        .video-grid {
-            grid-template-columns: 1fr;
-        }
-        
-        #header .bottom {
-            padding: 1rem;
-        }
-        
         .video-title {
             font-size: 1em;
-            padding: 0.8rem;
+            margin-top: 0.8rem;
+        }
+        .video-tip {
+            font-size: 0.8em;
+            margin-top: 1.5rem;
         }
     }
     </style>
@@ -189,50 +212,60 @@
                 </button>
             </header>
             <div class="video-grid">
-                <div class="video-card">
+                <div class="video-card-container">
+                    <div class="video-card">
+                        <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
+                        <iframe class="video-iframe" 
+                                 src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
+                                allowfullscreen></iframe>
+                    </div>
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
-                    <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
-                    <iframe class="video-iframe" 
-                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
-                            allowfullscreen></iframe>
                 </div>
-                <div class="video-card">
+                <div class="video-card-container">
+                    <div class="video-card">
+                        <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
+                        <iframe class="video-iframe" 
+                                 src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
+                                allowfullscreen></iframe>
+                    </div>
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
-                    <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
-                    <iframe class="video-iframe" 
-                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
-                            allowfullscreen></iframe>
                 </div>
-                <div class="video-card">
+                <div class="video-card-container">
+                    <div class="video-card">
+                        <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
+                        <iframe class="video-iframe" 
+                                 src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
+                                allowfullscreen></iframe>
+                    </div>
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
-                    <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
-                    <iframe class="video-iframe" 
-                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
-                            allowfullscreen></iframe>
                 </div>
-                <div class="video-card">
+                <div class="video-card-container">
+                    <div class="video-card">
+                        <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
+                        <iframe class="video-iframe" 
+                                 src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
+                                allowfullscreen></iframe>
+                    </div>
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
-                    <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
-                    <iframe class="video-iframe" 
-                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
-                            allowfullscreen></iframe>
                 </div>
-                <div class="video-card">
+                <div class="video-card-container">
+                    <div class="video-card">
+                        <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
+                        <iframe class="video-iframe" 
+                                 src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
+                                allowfullscreen></iframe>
+                    </div>
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
-                    <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
-                    <iframe class="video-iframe" 
-                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
-                            allowfullscreen></iframe>
                 </div>
-                <div class="video-card">
+                <div class="video-card-container">
+                    <div class="video-card">
+                        <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
+                        <iframe class="video-iframe" 
+                                 src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
+                                allowfullscreen></iframe>
+                    </div>
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
-                    <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
-                    <iframe class="video-iframe" 
-                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
-                            allowfullscreen></iframe>
                 </div>
-                <!-- 重复添加更多视频卡片 -->
-            </div>
             <div class="video-tip">点击视频跳转B站观看完整版</div>
         </div>
     </section>
@@ -323,18 +356,18 @@ function toggleFullscreen() {
 
 // 视频交互
 document.querySelectorAll('.video-card').forEach(card => {
-    const iframe = card.querySelector('iframe');
     card.addEventListener('click', () => {
-        const bvid = iframe.src.match(/bvid=([^&]+)/)[1];
+        const iframe = card.querySelector('iframe');
+        const bvid = new URL(iframe.src).searchParams.get('bvid');
         window.open(`https://www.bilibili.com/video/${bvid}`, '_blank');
     });
     
+    // 新增：悬停时显示封面渐变
     card.addEventListener('mouseenter', () => {
-        iframe.src = iframe.src.replace('autoplay=0', 'autoplay=1');
+        card.querySelector('.video-thumbnail').style.opacity = '0.2';
     });
-    
     card.addEventListener('mouseleave', () => {
-        iframe.src = iframe.src.replace('autoplay=1', 'autoplay=0');
+        card.querySelector('.video-thumbnail').style.opacity = '1';
     });
 });
 
