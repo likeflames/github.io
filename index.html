@@ -242,7 +242,6 @@
                 <button class="button small" onclick="toggleFullscreen()">
                     <i class="fas fa-expand"></i> 全屏了解更多作品
                 </button>
-                <div class="module-tip">点击视频可跳转B站观看完整版</div>
             </header>
             <div class="video-grid">
                 <!-- 视频1 -->
@@ -251,7 +250,7 @@
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
                     <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
                     <iframe class="video-iframe" 
-                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=1&muted=1"
+                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=1&muted=1&t=0"
                             allowfullscreen
                             onload="this.previousElementSibling.previousElementSibling.style.display='none'"></iframe>
                 </div>
@@ -260,7 +259,7 @@
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
                     <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
                     <iframe class="video-iframe" 
-                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=1&muted=1"
+                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=1&muted=1&t=0"
                             allowfullscreen
                             onload="this.previousElementSibling.previousElementSibling.style.display='none'"></iframe>
                 </div>
@@ -269,7 +268,7 @@
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
                     <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
                     <iframe class="video-iframe" 
-                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=1&muted=1"
+                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=1&muted=1&t=0"
                             allowfullscreen
                             onload="this.previousElementSibling.previousElementSibling.style.display='none'"></iframe>
                 </div>
@@ -278,7 +277,7 @@
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
                     <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
                     <iframe class="video-iframe" 
-                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=1&muted=1"
+                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=1&muted=1&t=0"
                             allowfullscreen
                             onload="this.previousElementSibling.previousElementSibling.style.display='none'"></iframe>
                 </div>
@@ -287,7 +286,7 @@
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
                     <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
                     <iframe class="video-iframe" 
-                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=1&muted=1"
+                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=1&muted=1&t=0"
                             allowfullscreen
                             onload="this.previousElementSibling.previousElementSibling.style.display='none'"></iframe>
                 </div>
@@ -296,7 +295,7 @@
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
                     <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
                     <iframe class="video-iframe" 
-                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=1&muted=1"
+                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=1&muted=1&t=0"
                             allowfullscreen
                             onload="this.previousElementSibling.previousElementSibling.style.display='none'"></iframe>
                 </div>
@@ -305,7 +304,7 @@
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
                     <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
                     <iframe class="video-iframe" 
-                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=1&muted=1"
+                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=1&muted=1&t=0"
                             allowfullscreen
                             onload="this.previousElementSibling.previousElementSibling.style.display='none'"></iframe>
                 </div>
@@ -314,7 +313,7 @@
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
                     <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
                     <iframe class="video-iframe" 
-                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=1&muted=1"
+                            src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=1&muted=1&t=0"
                             allowfullscreen
                             onload="this.previousElementSibling.previousElementSibling.style.display='none'"></iframe>
                 </div>
@@ -458,28 +457,29 @@ document.querySelectorAll('.video-card').forEach(card => {
         }
     });
 });
-// 视频交互逻辑<a target="_blank" href="https://blog.51cto.com/u_16213418/12241784" class="hitref" data-title="html5 video 代码_mob64ca12ed4084的技术博客_51CTO博客" data-snippet='在HTML5中,使用标签可以简便地插入视频。基本的语法结构如下: &lt;sour...' data-url="https://blog.51cto.com/u_16213418/12241784">1</a><a target="_blank" href="https://cloud.tencent.com/developer/information/更改html5视频标记上的源代码" class="hitref" data-title="更改html5视频标记上的源代码 - 腾讯云开发者社区 - 腾讯云" data-snippet='更改HTML5视频标记上的源代码是指通过修改HTML代码中的视频标签()的属性来更改视频的源代码。HTML5视频标记是一种用于在网页上嵌入视频的标准化方式,它使用了...' data-url="https://cloud.tencent.com/developer/information/更改html5视频标记上的源代码">3</a>
+//视频交互逻辑<a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video" class="hitref" data-title="&lt;video&gt;：视频嵌入元素- HTML（超文本标记语言） - MDN Web Docs" data-snippet='HTML 元素用于在文档中嵌入媒体播放器，用于支持文档内的视频播放 ... 一个布尔属性；指定后会在视频播放结束的时候，自动返回视频开始的地方，继续播放。' data-url="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video">3</a><a target="_blank" href="https://zh-tw.player.support.brightcove.com/publish/available-options-standard-iframe-embed-code.html" class="hitref" data-title="標準(iframe) 內嵌程式碼的可用選項 - 布萊特灣玩家文件" data-snippet='表示播放器應該立即開始播放，在允許此操作的平台上。 如果設定 autoplay 為Boolean 值，則會使用瀏覽器的原生自動播放行為。如果設定為下列三個有效字 ...' data-url="https://zh-tw.player.support.brightcove.com/publish/available-options-standard-iframe-embed-code.html">8</a>
 document.querySelectorAll('.video-card').forEach(card => {
     const iframe = card.querySelector('iframe');
     const dataSrc = iframe.dataset.src;
     
-    // 鼠标悬停时加载视频（延迟300ms防止误触发）
+    // 重置播放进度方法<a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video" class="hitref" data-title="&lt;video&gt;：视频嵌入元素- HTML（超文本标记语言） - MDN Web Docs" data-snippet='HTML 元素用于在文档中嵌入媒体播放器，用于支持文档内的视频播放 ... 一个布尔属性；指定后会在视频播放结束的时候，自动返回视频开始的地方，继续播放。' data-url="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video">3</a>
+    const resetVideo = () => {
+        iframe.src = `${dataSrc}&t=0&_=${Date.now()}`; // 添加时间戳防止缓存<a target="_blank" href="https://codepen.io/xgqfrms/pen/gOjKVdx" class="hitref" data-title="HTML5 video autoplay 自动播放带声音bug （iframe 限制） - CodePen" data-snippet='iframe 自动播放视频限制. 5. 6. 只用设置了`静音`才可以`自动播放`视频✓. 7. 不 ... com/ajax/libs/meyer-reset/2.0/reset.min.css&quot;,&quot;__theme_url_twilight&quot;:&quot;https ...' data-url="https://codepen.io/xgqfrms/pen/gOjKVdx">10</a>
+    };
+
     let hoverTimer;
     card.addEventListener('mouseenter', () => {
-        hoverTimer = setTimeout(() => {
-            iframe.src = dataSrc;
-        }, 300);
+        hoverTimer = setTimeout(resetVideo, 300); // 每次悬停都重置播放进度<a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video" class="hitref" data-title="&lt;video&gt;：视频嵌入元素- HTML（超文本标记语言） - MDN Web Docs" data-snippet='HTML 元素用于在文档中嵌入媒体播放器，用于支持文档内的视频播放 ... 一个布尔属性；指定后会在视频播放结束的时候，自动返回视频开始的地方，继续播放。' data-url="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video">3</a>
     });
     
-    // 鼠标离开时暂停视频
     card.addEventListener('mouseleave', () => {
         clearTimeout(hoverTimer);
-        iframe.src = 'about:blank';
+        iframe.src = 'about:blank'; // 清空iframe停止播放<a target="_blank" href="https://zh-tw.player.support.brightcove.com/publish/available-options-standard-iframe-embed-code.html" class="hitref" data-title="標準(iframe) 內嵌程式碼的可用選項 - 布萊特灣玩家文件" data-snippet='表示播放器應該立即開始播放，在允許此操作的平台上。 如果設定 autoplay 為Boolean 值，則會使用瀏覽器的原生自動播放行為。如果設定為下列三個有效字 ...' data-url="https://zh-tw.player.support.brightcove.com/publish/available-options-standard-iframe-embed-code.html">8</a>
     });
     
-    // 点击跳转B站<a target="_blank" href="https://developer.aliyun.com/article/1615629" class="hitref" data-title="HTML5 视频详解-阿里云开发者社区" data-snippet='HTML5 引入了内置的标签,使得在网页中嵌入和播放视频变得更加简单和直观。以下是对 HTML5 视频的详解,包括使用方法、常用属性、示例代码等。 1. 基本语...' data-url="https://developer.aliyun.com/article/1615629">5</a>
+    // 点击跳转逻辑保持不变
     card.addEventListener('click', () => {
-        const bvid = dataSrc.match(/bvid=([^&]+)/)<a target="_blank" href="https://blog.51cto.com/u_16213418/12241784" class="hitref" data-title="html5 video 代码_mob64ca12ed4084的技术博客_51CTO博客" data-snippet='在HTML5中,使用标签可以简便地插入视频。基本的语法结构如下: &lt;sour...' data-url="https://blog.51cto.com/u_16213418/12241784">1</a>;
+        const bvid = dataSrc.match(/bvid=([^&]+)/)<a target="_blank" href="https://blog.csdn.net/xiaoxia_127/article/details/107643764" class="hitref" data-title="video自动播放问题（autoplay） 原创 - CSDN博客" data-snippet='嵌套iframe页面内部的是否可以自动播放，取决于iframe标签上是否有allow=&quot;autoplay&quot;属性，有的话iframe按照上述两条来决定自动播放策略，没有的话内部无法 ...' data-url="https://blog.csdn.net/xiaoxia_127/article/details/107643764">1</a>;
         window.open(`https://www.bilibili.com/video/${bvid}`, '_blank');
     });
 });
