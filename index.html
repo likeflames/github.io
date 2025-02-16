@@ -448,18 +448,6 @@ const navLinks = document.querySelectorAll('#nav a');
             this.classList.add('active');
         });
     });
-// 导航栏链接点击切换 active 类
-const navLinks = document.querySelectorAll('#nav a');
-navLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
-        // 移除所有链接的 active 类
-        navLinks.forEach(navLink => {
-            navLink.classList.remove('active');
-        });
-        // 为当前点击的链接添加 active 类
-        this.classList.add('active');
-    });
-});
 
 // 根据哈希值激活对应链接的函数
 function activateLinkByHash() {
