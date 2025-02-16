@@ -222,33 +222,6 @@
             font-size: 0.8em;
         }
     }
-        /* 导航栏样式 */
-    #header {
-        background: var(--primary); /* 使用主色调 */
-        color: white;
-        padding: 1rem;
-        box-shadow: 0 4px 12px var(--shadow);
-    }
-
-    #nav a {
-        color: white;
-        text-decoration: none;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        transition: background 0.3s ease;
-    }
-
-    #nav a:hover {
-        background: var(--hover-bg); /* 悬停背景色 */
-        color: var(--accent); /* 悬停文字颜色 */
-    }
-
-    /* 移除链接的默认焦点样式 */
-    a:focus, a:active {
-        outline: none;
-        border: none;
-        box-shadow: none;
-    }
     </style>
 </head>
 <body class="is-preload">
@@ -459,6 +432,18 @@ document.querySelector('form').addEventListener('submit', function(e) {
         this.reset();
     }).catch(() => alert('发送失败，请检查网络'));
 });
+const navLinks = document.querySelectorAll('#nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            // 移除所有链接的 active 类
+            navLinks.forEach(navLink => {
+                navLink.classList.remove('active');
+            });
+            // 为当前点击的链接添加 active 类
+            this.classList.add('active');
+        });
+    });
+</script
 </script>
 </body>
 </html>
