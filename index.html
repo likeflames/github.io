@@ -402,7 +402,12 @@
 // 页面加载动画
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
+    // 页面加载时根据哈希值激活对应链接
+    activateLinkByHash(); 
 });
+
+// 监听哈希值变化，当用户通过浏览器前进后退改变哈希时也能正确激活链接
+window.addEventListener('hashchange', activateLinkByHash); 
 
 // 视频交互
 document.querySelectorAll('.video-card').forEach(card => {
@@ -443,7 +448,30 @@ const navLinks = document.querySelectorAll('#nav a');
             this.classList.add('active');
         });
     });
-</script
+// 导航栏链接点击切换 active 类
+const navLinks = document.querySelectorAll('#nav a');
+navLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+        // 移除所有链接的 active 类
+        navLinks.forEach(navLink => {
+            navLink.classList.remove('active');
+        });
+        // 为当前点击的链接添加 active 类
+        this.classList.add('active');
+    });
+});
+
+// 根据哈希值激活对应链接的函数
+function activateLinkByHash() {
+    const hash = window.location.hash || '#top'; 
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === hash) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
 </script>
 </body>
 </html>
