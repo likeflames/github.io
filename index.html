@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
+
 <head>
     <title>Likeflames的个人主页</title>
     <meta charset="utf-8" />
@@ -8,365 +9,390 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-    /* 全局样式 */
-    :root {
-        --primary: #2c3e50;
-        --accent: #3498db;
-        --text: #2c3e50;
-        --light-bg: #f8f9fa;
-    }
-
-    html {
-        scroll-behavior: smooth;
-        font-family: 'Segoe UI', system-ui, sans-serif;
-    }
-
-    /* 视频模块 */
-    .video-section {
-        background: var(--light-bg);
-        padding: 4rem 0;
-    }
-
-    .video-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
-    }
-
-    .video-card {
-        position: relative;
-        border-radius: 12px;
-        overflow: hidden;
-        transition: transform 0.3s ease;
-        aspect-ratio: 16/9;
-        background: #fff;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    }
-
-    .video-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 32px rgba(0,0,0,0.15);
-    }
-
-    .video-thumbnail {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: opacity 0.3s ease;
-    }
-
-    .video-iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .video-card:hover .video-iframe {
-        opacity: 1;
-    }
-
-    /* 新增：标题装饰线 */
-    .video-title::after {
-        content: '';
-        display: block;
-        width: 40px;
-        height: 2px;
-        background: var(--accent);
-        margin: 0.8rem auto;
-        opacity: 0.7;
-    }
-
-    /* 新增：外部标题容器 */
-    .video-card-container {
-        position: relative;
-        margin-bottom: 2.5rem;
-    }
-
-    /* 修改：标题移至卡片外部 */
-    .video-title {
-        margin-top: 1rem;
-        color: var(--text);
-        font-size: 0.9em;
-        text-align: center;
-        line-height: 1.4;
-        padding: 0 1rem;
-        font-weight: 500;
-        position: relative;
-        transition: color 0.3s ease;
-    }
-
-    /* 修改：提示文字样式 */
-    .video-tip {
-        text-align: center;
-        margin-top: 2rem;
-        font-size: 0.75em;
-        color: #95a5a6;
-        letter-spacing: 1px;
-        opacity: 0.8;
-        position: relative;
-        padding-bottom: 1rem;
-    }
-
-    /* 新增：卡片悬停时标题效果 */
-    .video-card:hover + .video-title {
-        color: var(--accent);
-    }
-
-    /* 全屏模式 */
-    .fullscreen-mode {
-        background: rgba(255,255,255,0.98);
-        backdrop-filter: blur(10px);
-    }
-
-    /* 导航栏激活状态 */
-    #nav li a.active {
-        color: var(--accent) !important;
-        border-bottom: 2px solid;
-    }
-
-    /* 响应式设计 */
-    @media (max-width: 768px) {
-        .video-title {
-            font-size: 1em;
-            margin-top: 0.8rem;
+        /* 全局样式 */
+        :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --text: #2c3e50;
+            --light-bg: #f8f9fa;
         }
-        .video-tip {
-            font-size: 0.8em;
-            margin-top: 1.5rem;
+
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Segoe UI', system-ui, sans-serif;
         }
-    }
+
+        /* 视频模块 */
+       .video-section {
+            background: var(--light-bg);
+            padding: 4rem 0;
+        }
+
+       .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+       .video-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            aspect-ratio: 16/9;
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+       .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+        }
+
+       .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+       .video-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* 修改：鼠标悬停时显示视频 */
+       .video-card:hover.video-iframe {
+            opacity: 1;
+        }
+
+        /* 新增：标题装饰线 */
+       .video-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+            margin: 0.8rem auto;
+            opacity: 0.7;
+        }
+
+        /* 新增：外部标题容器 */
+       .video-card-container {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        /* 修改：标题移至卡片外部 */
+       .video-title {
+            margin-top: 1rem;
+            color: var(--text);
+            font-size: 0.9em;
+            text-align: center;
+            line-height: 1.4;
+            padding: 0 1rem;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        /* 修改：提示文字样式 */
+       .video-tip {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.75em;
+            color: #95a5a6;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        /* 新增：卡片悬停时标题效果 */
+       .video-card:hover+.video-title {
+            color: var(--accent);
+        }
+
+        /* 全屏模式 */
+       .fullscreen-mode {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+        }
+
+        /* 导航栏激活状态 */
+        #nav li a.active {
+            color: var(--accent)!important;
+            border-bottom: 2px solid;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+           .video-title {
+                font-size: 1em;
+                margin-top: 0.8rem;
+            }
+
+           .video-tip {
+                font-size: 0.8em;
+                margin-top: 1.5rem;
+            }
+        }
     </style>
 </head>
+
 <body class="is-preload">
 
-<!-- 头部导航 -->
-<div id="header">
-    <div class="top">
-        <div id="logo">
-            <span class="image avatar48"><img src="images/avatar.jpg" alt="头像" /></span>
-            <h1 id="title">Likeflames</h1>
-            <p>浙江大学电气工程</p>
+    <!-- 头部导航 -->
+    <div id="header">
+        <div class="top">
+            <div id="logo">
+                <span class="image avatar48"><img src="images/avatar.jpg" alt="头像" /></span>
+                <h1 id="title">Likeflames</h1>
+                <p>浙江大学电气工程</p>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#top" class="active"><span class="icon solid fa-home">首页</span></a></li>
+                    <li><a href="#portfolio"><span class="icon solid fa-camera">摄影</span></a></li>
+                    <li><a href="#videos"><span class="icon solid fa-video">视频</span></a></li>
+                    <li><a href="#contact"><span class="icon solid fa-envelope">联系</span></a></li>
+                </ul>
+            </nav>
         </div>
-        <nav id="nav">
-            <ul>
-                <li><a href="#top" class="active"><span class="icon solid fa-home">首页</span></a></li>
-                <li><a href="#portfolio"><span class="icon solid fa-camera">摄影</span></a></li>
-                <li><a href="#videos"><span class="icon solid fa-video">视频</span></a></li>
-                <li><a href="#contact"><span class="icon solid fa-envelope">联系</span></a></li>
+        <div class="bottom">
+            <ul class="icons">
+                <li><a href="mailto:iamwujianhua@163.com" class="icon solid fa-envelope"><span class="label">邮箱</span></a></li>
+                <li><a href="https://github.com/likeflames" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
             </ul>
-        </nav>
-    </div>
-    <div class="bottom">
-        <ul class="icons">
-            <li><a href="mailto:iamwujianhua@163.com" class="icon solid fa-envelope"><span class="label">邮箱</span></a></li>
-            <li><a href="https://github.com/likeflames" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-        </ul>
-    </div>
-</div>
-
-<!-- 主内容 -->
-<div id="main">
-    <!-- 首页 -->
-    <section id="top" class="one dark cover">
-        <div class="container">
-            <header>
-                <h2>你好，我是Likeflames</h2>
-                <p>浙江大学电气工程专业 | 摄影爱好者 | 技术开发者</p>
-            </header>
         </div>
-    </section>
+    </div>
 
-    <!-- 摄影作品 -->
-    <section id="portfolio" class="two">
-        <div class="container">
-            <header>
-                <h2>摄影作品</h2>
-                <p>用镜头记录校园生活</p>
-            </header>
-            <div class="row">
-                <div class="col-4 col-12-mobile">
-                    <article class="item">
-                        <img src="images/photo1.jpg" alt="校园秋色" class="zoom-effect"/>
-                    </article>
+    <!-- 主内容 -->
+    <div id="main">
+        <!-- 首页 -->
+        <section id="top" class="one dark cover">
+            <div class="container">
+                <header>
+                    <h2>你好，我是Likeflames</h2>
+                    <p>浙江大学电气工程专业 | 摄影爱好者 | 技术开发者</p>
+                </header>
+            </div>
+        </section>
+
+        <!-- 摄影作品 -->
+        <section id="portfolio" class="two">
+            <div class="container">
+                <header>
+                    <h2>摄影作品</h2>
+                    <p>用镜头记录校园生活</p>
+                </header>
+                <div class="row">
+                    <div class="col-4 col-12-mobile">
+                        <article class="item">
+                            <img src="images/photo1.jpg" alt="校园秋色" class="zoom-effect" />
+                        </article>
+                    </div>
+                    <!-- 其他图片保持相同结构 -->
                 </div>
-                <!-- 其他图片保持相同结构 -->
+            </div>
+        </section>
+
+        <!-- 视频模块 -->
+        <section id="videos" class="three video-section">
+            <div class="container">
+                <header>
+                    <h2>视频作品</h2>
+                    <button class="button small" onclick="toggleFullscreen()">
+                        <i class="fas fa-expand"></i> 全屏浏览
+                    </button>
+                </header>
+                <div class="video-grid">
+                    <div class="video-card-container">
+                        <div class="video-card">
+                            <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
+                            <iframe class="video-iframe"
+                                src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
+                                allowfullscreen></iframe>
+                        </div>
+                        <h3 class="video-title">艾莉：也理理我嘛</h3>
+                    </div>
+                    <div class="video-card-container">
+                        <div class="video-card">
+                            <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
+                            <iframe class="video-iframe"
+                                src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
+                                allowfullscreen></iframe>
+                        </div>
+                        <h3 class="video-title">艾莉：也理理我嘛</h3>
+                    </div>
+                    <div class="video-card-container">
+                        <div class="video-card">
+                            <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
+                            <iframe class="video-iframe"
+                                src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
+                                allowfullscreen></iframe>
+                        </div>
+                        <h3 class="video-title">艾莉：也理理我嘛</h3>
+                    </div>
+                    <div class="video-card-container">
+                        <div class="video-card">
+                            <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
+                            <iframe class="video-iframe"
+                                src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
+                                allowfullscreen></iframe>
+                        </div>
+                        <h3 class="video-title">艾莉：也理理我嘛</h3>
+                    </div>
+                    <div class="video-card-container">
+                        <div class="video-card">
+                            <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
+                            <iframe class="video-iframe"
+                                src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
+                                allowfullscreen></iframe>
+                        </div>
+                        <h3 class="video-title">艾莉：也理理我嘛</h3>
+                    </div>
+                    <div class="video-card-container">
+                        <div class="video-card">
+                            <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
+                            <iframe class="video-iframe"
+                                src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
+                                allowfullscreen></iframe>
+                        </div>
+                        <h3 class="video-title">艾莉：也理理我嘛</h3>
+                    </div>
+                </div>
+                <div class="video-tip">点击视频跳转B站观看完整版</div>
+            </div>
+        </section>
+
+        <!-- 联系表单 -->
+        <section id="contact" class="four">
+            <div class="container">
+                <header>
+                    <h2>联系我</h2>
+                </header>
+                <form method="POST" action="https://formspree.io/f/mldgpbyr">
+                    <div class="row gtr-uniform">
+                        <div class="col-6 col-12-mobile">
+                            <input type="text" name="name" placeholder="姓名" required>
+                        </div>
+                        <div class="col-6 col-12-mobile">
+                            <input type="email" name="email" placeholder="邮箱" required>
+                        </div>
+                        <div class="col-12">
+                            <textarea name="message" placeholder="留言内容" rows="6" required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="button primary">发送消息</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- 全屏容器 -->
+    <div id="fullscreen-container" class="fullscreen-mode" style="display: none;">
+        <div class="fullscreen-header">
+            <h2>视频作品</h2>
+            <div class="close-fullscreen" onclick="toggleFullscreen()">
+                <i class="fas fa-times"></i>
             </div>
         </div>
-    </section>
-
-    <!-- 视频模块 -->
-    <section id="videos" class="three video-section">
-        <div class="container">
-            <header>
-                <h2>视频作品</h2>
-                <button class="button small" onclick="toggleFullscreen()">
-                    <i class="fas fa-expand"></i> 全屏浏览
-                </button>
-            </header>
-            <div class="video-grid">
-                <div class="video-card-container">
-                    <div class="video-card">
-                        <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
-                        <iframe class="video-iframe" 
-                                 src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
-                                allowfullscreen></iframe>
-                    </div>
-                    <h3 class="video-title">艾莉：也理理我嘛</h3>
-                </div>
-                <div class="video-card">
-                        <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
-                        <iframe class="video-iframe" 
-                                 src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
-                                allowfullscreen></iframe>
-                    </div>
-                    <h3 class="video-title">艾莉：也理理我嘛</h3>
-                </div>
-                <div class="video-card">
-                        <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
-                        <iframe class="video-iframe" 
-                                 src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
-                                allowfullscreen></iframe>
-                    </div>
-                    <h3 class="video-title">艾莉：也理理我嘛</h3>
-                </div>
-                <div class="video-card">
-                        <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
-                        <iframe class="video-iframe" 
-                                 src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=0&muted=1"
-                                allowfullscreen></iframe>
-                    </div>
-                    <h3 class="video-title">艾莉：也理理我嘛</h3>
-                </div>
-                <!-- 其他视频保持相同结构 -->
-            </div>
-            <div class="video-tip">点击视频跳转B站观看完整版</div>
-        </div>
-    </section>
-
-    <!-- 联系表单 -->
-    <section id="contact" class="four">
-        <div class="container">
-            <header>
-                <h2>联系我</h2>
-            </header>
-            <form method="POST" action="https://formspree.io/f/mldgpbyr">
-                <div class="row gtr-uniform">
-                    <div class="col-6 col-12-mobile">
-                        <input type="text" name="name" placeholder="姓名" required>
-                    </div>
-                    <div class="col-6 col-12-mobile">
-                        <input type="email" name="email" placeholder="邮箱" required>
-                    </div>
-                    <div class="col-12">
-                        <textarea name="message" placeholder="留言内容" rows="6" required></textarea>
-                    </div>
-                    <div class="col-12">
-                        <button type="submit" class="button primary">发送消息</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </section>
-</div>
-
-<!-- 全屏容器 -->
-<div id="fullscreen-container" class="fullscreen-mode" style="display: none;">
-    <div class="fullscreen-header">
-        <h2>视频作品</h2>
-        <div class="close-fullscreen" onclick="toggleFullscreen()">
-            <i class="fas fa-times"></i>
-        </div>
+        <div class="video-grid"></div>
     </div>
-    <div class="video-grid"></div>
-</div>
 
-<script>
-// 平滑滚动
-document.querySelectorAll('#nav a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('#nav a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
 
-        if (targetSection) {
-            document.querySelectorAll('#nav a').forEach(a => a.classList.remove('active'));
-            this.classList.add('active');
+                if (targetSection) {
+                    document.querySelectorAll('#nav a').forEach(a => a.classList.remove('active'));
+                    this.classList.add('active');
 
-            const headerHeight = document.getElementById('header').offsetHeight;
-            const targetPosition = targetSection.offsetTop - headerHeight;
+                    const headerHeight = document.getElementById('header').offsetHeight;
+                    const targetPosition = targetSection.offsetTop - headerHeight;
 
-            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-        }
-    });
-});
-
-// 滚动激活状态
-window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY + document.getElementById('header').offsetHeight;
-    document.querySelectorAll('section').forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (scrollPosition >= sectionTop - 100) {
-            const id = section.getAttribute('id');
-            document.querySelectorAll('#nav a').forEach(a => {
-                a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
             });
+        });
+
+        // 滚动激活状态
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY + document.getElementById('header').offsetHeight;
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollPosition >= sectionTop - 100) {
+                    const id = section.getAttribute('id');
+                    document.querySelectorAll('#nav a').forEach(a => {
+                        a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
+                    });
+                }
+            });
+        });
+
+        // 全屏控制
+        function toggleFullscreen() {
+            const container = document.getElementById('fullscreen-container');
+            if (container.style.display === 'none') {
+                container.style.display = 'block';
+                container.querySelector('.video-grid').innerHTML = document.querySelector('.video-grid').innerHTML;
+                document.body.style.overflow = 'hidden';
+            } else {
+                container.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
         }
-    });
-});
 
-// 全屏控制
-function toggleFullscreen() {
-    const container = document.getElementById('fullscreen-container');
-    if (container.style.display === 'none') {
-        container.style.display = 'block';
-        container.querySelector('.video-grid').innerHTML = document.querySelector('.video-grid').innerHTML;
-        document.body.style.overflow = 'hidden';
-    } else {
-        container.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-}
+        // 视频交互
+        document.querySelectorAll('.video-card').forEach(card => {
+            const iframe = card.querySelector('iframe');
+            const originalSrc = iframe.src;
 
-// 视频交互
-document.querySelectorAll('.video-card').forEach(card => {
-    const iframe = card.querySelector('iframe');
-    const bvid = new URL(iframe.src).searchParams.get('bvid');
+            card.addEventListener('mouseenter', () => {
+                iframe.src = originalSrc + '&autoplay=1';
+                iframe.style.opacity = 1;
+            });
 
-    card.addEventListener('mouseenter', () => {
-        iframe.src = `//player.bilibili.com/player.html?bvid=${bvid}&autoplay=1&muted=1`;
-        card.querySelector('.video-thumbnail').style.opacity = '0.2';
-    });
+            card.addEventListener('mouseleave', () => {
+                iframe.src = originalSrc + '&autoplay=0';
+                iframe.style.opacity = 0;
+            });
 
-    card.addEventListener('mouseleave', () => {
-        iframe.src = `//player.bilibili.com/player.html?bvid=${bvid}&autoplay=0&muted=1`;
-        card.querySelector('.video-thumbnail').style.opacity = '1';
-    });
+            card.addEventListener('click', () => {
+                const bvid = new URL(iframe.src).searchParams.get('bvid');
+                window.open(`https://www.bilibili.com/video/${bvid}`, '_blank');
+            });
+        });
 
-    card.addEventListener('click', () => {
-        window.open(`https://www.bilibili.com/video/${bvid}`, '_blank');
-    });
-});
-
-// 表单提交
-document.querySelector('form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    fetch(this.action, {
-        method: 'POST',
-        body: new FormData(this),
-        headers: { 'Accept': 'application/json' }
-    }).then(() => {
-        alert('消息已发送！');
-        this.reset();
-    }).catch(() => alert('发送失败，请检查网络'));
-});
-</script>
+        // 表单提交
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                headers: { 'Accept': 'application/json' }
+            }).then(() => {
+                alert('消息已发送！');
+                this.reset();
+            }).catch(() => alert('发送失败，请检查网络'));
+        });
+    </script>
 </body>
+
 </html>
