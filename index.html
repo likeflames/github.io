@@ -24,18 +24,18 @@
             font-weight: 500;
         }
         
-        h2 {
+        .underline-title {
             position: relative;
             display: inline-block;
-            margin-bottom: 20px; /* 预留一定的空间给下划线 */
+            margin-bottom: 20px;
         }
 
-        h2::after {
+       .underline-title::after {
             content: "";
             position: absolute;
             left: 25%;
-            bottom: -15px; /* 控制下划线与文本的垂直距离，数值越大距离越远 */
-            width: 50%; /* 下划线长度为标题宽度的一半 */
+            bottom: -15px;
+            width: 50%;
             height: 2px;
             background-color: green;
         }
@@ -302,7 +302,7 @@
         <section id="portfolio" class="two">
             <div class="container">
                 <header>
-                    <h2><strong>摄影</strong></h2>
+                    <h2 class="underline-title"><strong>摄影</strong></h2>
                 </header>
                 <p>
                     用影像记录时间
@@ -358,7 +358,7 @@
         <section id="videos" class="three video-section">
             <div class="container">
                 <header>
-                    <h2><strong>视频</strong></h2>
+                    <h2 class="underline-title"><strong>视频</strong></h2>
                 </header>
                 <div class="video-grid">
                     <div class="video-card-container">
@@ -433,7 +433,7 @@
         <section id="contact" class="four">
             <div class="container">
                 <header>
-                    <h2><strong>联系我</strong></h2>
+                    <h2 class="underline-title"><strong>联系我</strong></h2>
                 </header>
                 <form method="POST" action="https://formspree.io/f/mldgpbyr">
                     <div class="row gtr-uniform">
