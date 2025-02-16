@@ -289,27 +289,6 @@
 
 <script>
 
-// 自动检测滚动位置（自动高亮对应导航按钮）
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section'); // 所有内容区块
-    const headerHeight = document.getElementById('header').offsetHeight + 20; // 补偿值
-    
-    sections.forEach(section => {
-        // 获取区块位置信息
-        const rect = section.getBoundingClientRect();
-        
-        // 当区块顶部进入可视区域时触发（带容错空间）
-        if (rect.top <= headerHeight && rect.bottom >= headerHeight) {
-            const currentId = section.getAttribute('id');
-            
-            // 更新导航按钮状态
-            document.querySelectorAll('#nav a').forEach(a => {
-                a.classList.toggle('active', a.getAttribute('href') === `#${currentId}`);
-            });
-        }
-    });
-});
-
 // 视频交互
 document.querySelectorAll('.video-card').forEach(card => {
     const iframe = card.querySelector('iframe');
