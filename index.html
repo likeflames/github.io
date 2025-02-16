@@ -21,15 +21,21 @@
         }
 
         strong {
-            font-weight: 900; /* 设置字体粗细为 900，这是最粗的级别，你可以根据需求调整 */
+            font-weight: 700; /* 设置字体粗细为 900，这是最粗的级别，你可以根据需求调整 */
         }
         
+        h2 {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px; /* 预留一定的空间给下划线 */
+        }
+
         h2::after {
             content: "";
             position: absolute;
             left: 0;
-            bottom: -10px; /* 调整这个值可以改变下划线与文本的距离，值越大距离越远 */
-            width: 50%; /* 让下划线长度为文本的一半 */
+            bottom: -15px; /* 控制下划线与文本的垂直距离，数值越大距离越远 */
+            width: 50%; /* 下划线长度为标题宽度的一半 */
             height: 2px;
             background-color: green;
         }
