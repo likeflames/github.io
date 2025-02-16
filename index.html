@@ -12,7 +12,48 @@
     html {
         scroll-behavior: smooth;
     }
+    /* 新增样式 */
+    .video-title {
+        position: relative;
+        margin: 10px auto 0;
+        text-align: center;
+        color: #333;
+        font-size: 16px;
+        font-weight: 500;
+        width: 90%;
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+    }
 
+    .module-tip {
+        position: absolute;
+        bottom: -30px;
+        right: 20px;
+        color: #666;
+        font-size: 12px;
+        padding: 6px 12px;
+        background: rgba(255,255,255,0.9);
+        border-radius: 4px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .video-loader {
+        display: none; /* 默认隐藏加载动画 */
+        /* 原有样式保持不变 */
+    }
+
+    .video-card:hover .video-loader {
+        display: block; /* 悬停时显示加载动画 */
+    }
+
+    .video-iframe {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .video-card:hover .video-iframe {
+        opacity: 1;
+    }
     /* 视频模块高级样式 */
     .video-section {
         background: #f8f9fa;
@@ -134,19 +175,6 @@
         font-size: 12px;
         z-index: 3;
     }
-
-    /* 新增视频标题 */
-    .video-title {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 12px;
-        background: linear-gradient(transparent, rgba(0,0,0,0.8));
-        color: white;
-        font-size: 14px;
-        z-index: 2;
-    }
     </style>
 </head>
 <body class="is-preload">
@@ -214,48 +242,45 @@
                 <button class="button small" onclick="toggleFullscreen()">
                     <i class="fas fa-expand"></i> 全屏了解更多作品
                 </button>
+                <div class="module-tip">点击视频可跳转B站观看完整版</div>
             </header>
             <div class="video-grid">
                 <!-- 视频1 -->
                 <div class="video-card">
                     <div class="video-loader"></div>
-                    <div class="video-tip">鼠标悬停预览，点击跳转B站</div>
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
                     <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
                     <iframe class="video-iframe" 
                             src="//player.bilibili.com/player.html?aid=112935326254132&bvid=BV1y3YLe4E5W&cid=500001644343583&page=1&autoplay=0&low_volume=1"
                             allowfullscreen
-                            onload="this.previousElementSibling.style.display='none'"></iframe>
+                            onload="this.previousElementSibling.previousElementSibling.style.display='none'"></iframe>
                 </div>
                 <div class="video-card">
                     <div class="video-loader"></div>
-                    <div class="video-tip">鼠标悬停预览，点击跳转B站</div>
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
                     <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
                     <iframe class="video-iframe" 
                             src="//player.bilibili.com/player.html?aid=112935326254132&bvid=BV1y3YLe4E5W&cid=500001644343583&page=1&autoplay=0&low_volume=1"
                             allowfullscreen
-                            onload="this.previousElementSibling.style.display='none'"></iframe>
+                            onload="this.previousElementSibling.previousElementSibling.style.display='none'"></iframe>
                 </div>
                 <div class="video-card">
                     <div class="video-loader"></div>
-                    <div class="video-tip">鼠标悬停预览，点击跳转B站</div>
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
                     <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
                     <iframe class="video-iframe" 
                             src="//player.bilibili.com/player.html?aid=112935326254132&bvid=BV1y3YLe4E5W&cid=500001644343583&page=1&autoplay=0&low_volume=1"
                             allowfullscreen
-                            onload="this.previousElementSibling.style.display='none'"></iframe>
+                            onload="this.previousElementSibling.previousElementSibling.style.display='none'"></iframe>
                 </div>
                 <div class="video-card">
                     <div class="video-loader"></div>
-                    <div class="video-tip">鼠标悬停预览，点击跳转B站</div>
                     <h3 class="video-title">艾莉：也理理我嘛</h3>
                     <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面">
                     <iframe class="video-iframe" 
                             src="//player.bilibili.com/player.html?aid=112935326254132&bvid=BV1y3YLe4E5W&cid=500001644343583&page=1&autoplay=0&low_volume=1"
                             allowfullscreen
-                            onload="this.previousElementSibling.style.display='none'"></iframe>
+                            onload="this.previousElementSibling.previousElementSibling.style.display='none'"></iframe>
                 </div>
             </div>
         </div>
@@ -385,6 +410,15 @@ document.querySelectorAll('.video-card').forEach(card => {
     card.addEventListener('click', function(e) {
         if(!e.target.classList.contains('video-tip')) {
             window.open('https://www.bilibili.com/video/BV1y3YLe4E5W', '_blank');
+        }
+    });
+});
+// 更新视频点击事件
+document.querySelectorAll('.video-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+        if(!e.target.classList.contains('module-tip')) {
+            const bvid = this.querySelector('iframe').src.match(/bvid=([^&]+)/)<a target="_blank" href="https://jingyan.baidu.com/article/0964eca2dcd2eec384f53612.html" class="hitref" data-title="网页标题如何居中 - 百度经验" data-snippet='2 我们要利用下图框内的一对标签 3 接着我们输入标题如下图框内 4 接着我们要输入下图框内的居中的标签 5 我们把选择下图框内的编码 6 接着我们打开这个网页就可以看到下图框内的我们设置的...' data-url="https://jingyan.baidu.com/article/0964eca2dcd2eec384f53612.html">1</a>;
+            window.open(`https://www.bilibili.com/video/${bvid}`, '_blank');
         }
     });
 });
