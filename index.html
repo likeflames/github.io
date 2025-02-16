@@ -24,7 +24,19 @@
         padding: 8px 0;
         border-bottom: 1px solid #eee;
     }
+    /* 新增父级定位 */
+    .video-card {
+        position: relative; /* 关键修复点<a target="_blank" href="https://blog.csdn.net/huang3513/article/details/144977046" class="hitref" data-title="为什么页面无法正确显示?都有哪些HTML和CSS相关问题?" data-snippet='页面无法正确显示可能由多种原因导致,通常与HTML和CSS的结构、语法错误、浏览器兼容性、资源加载等问题有关。以下是一些常见的原因及其解决方法,结合实际项目代...' data-url="https://blog.csdn.net/huang3513/article/details/144977046">6</a> */
+    }
 
+    /* 调整标题层级 */
+    .video-title {
+        z-index: 999; /* 提升层级<a target="_blank" href="https://blog.csdn.net/huang3513/article/details/144977046" class="hitref" data-title="为什么页面无法正确显示?都有哪些HTML和CSS相关问题?" data-snippet='页面无法正确显示可能由多种原因导致,通常与HTML和CSS的结构、语法错误、浏览器兼容性、资源加载等问题有关。以下是一些常见的原因及其解决方法,结合实际项目代...' data-url="https://blog.csdn.net/huang3513/article/details/144977046">6</a> */
+        bottom: 20px; /* 下移避免被B站控件遮挡<a target="_blank" href="https://juejin.cn/post/7469595896314544178" class="hitref" data-title="html video标签黑线问题video标签容器存在时有时无的黑线,..." data-snippet='1、video标签容器存在时有时无的黑线,此黑线并非视频与容器大小不匹配的黑边 2、页面滚动时黑线消失 3、截图时(无论系统截图、QQ截图)黑线消失,录屏时黑线也消失 4、此问题出现在Chrom...' data-url="https://juejin.cn/post/7469595896314544178">7</a> */
+        left: 20px;
+        font-size: 1.2em; /* 调大字号<a target="_blank" href="https://wenku.baidu.com/view/6ed85aaed3d233d4b14e852458fb770bf78a3b23.html" class="hitref" data-title="HTML解决video标签播放视频看不见&amp;能听到声音看..." data-snippet='问题 要播放视频⾸先确保以下⼏点是正确的 1: 确保输⼊的标签内容是完整的 ①src路径地址是对的,不要少了什么.mp4后缀等 ②autoplay=&quot;&quot; 是否设置了⾃动播放 ...' data-url="https://wenku.baidu.com/view/6ed85aaed3d233d4b14e852458fb770bf78a3b23.html">8</a> */
+        mix-blend-mode: difference; /* 增强对比度<a target="_blank" href="https://zhidao.baidu.com/question/1650050983274362860.html" class="hitref" data-title="html背景视频挡住内容怎么办 - 百度知道" data-snippet='可以尝试降低背景视频的透明度。通过设置背景视频所在元素的透明度属性，可以使内容透过背景视频显示出来。3、调整背景视频的大小和位置：当背景视频太大或者位置...' data-url="https://zhidao.baidu.com/question/1650050983274362860.html">5</a> */
+    }
     .module-tip {
         position: absolute;
         bottom: -30px;
@@ -244,6 +256,18 @@
                 </button>
             </header>
             <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-loader"></div>
+                    <!-- 标题显示修正 -->
+                    <h3 class="video-title" style="display:block !important">艾莉：也理理我嘛</h3>
+                    <img src="images/ailifengmian.png" class="video-thumbnail" alt="视频封面"style="z-index:1"> <!-- 限制封面层级 -->
+                    <iframe class="video-iframe" 
+                        src="//player.bilibili.com/player.html?bvid=BV1y3YLe4E5W&autoplay=1&muted=1&t=0"
+                        allowfullscreen
+                        style="z-index:2" <!-- 控制视频层级 -->
+                        onload="this.previousElementSibling.previousElementSibling.style.display='none'">
+                </iframe>
+                </div>
                 <!-- 视频1 -->
                 <div class="video-card">
                     <div class="video-loader"></div>
