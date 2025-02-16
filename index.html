@@ -12,19 +12,30 @@
     html {
         scroll-behavior: smooth;
     }
-    /* 新增样式 */
+    /* 修正后的视频标题样式 */
     .video-title {
-          width: 100%;            /* 与视频同宽<a target="_blank" href="https://zhidao.baidu.com/question/1615821126413386027.html" class="hitref" data-title="网页设计视频怎么居中 - 百度知道" data-snippet='1、使用CSS样式：在CSS中，用户将margin设置为auto并将display属性设置为block，可以使网页设计视频在水平方向上居中。2、使用HTML标记：在HTML中，用户将align属...' data-url="https://zhidao.baidu.com/question/1615821126413386027.html">3</a> */
-          text-align: center;     /* 文字水平居中<a target="_blank" href="https://worktile.com/kb/ask/800380.html" class="hitref" data-title="web前端标题怎么居中 • Worktile社区" data-snippet='要实现网页前端标题居中,可以使用CSS来设置文本的对齐方式。具体的方法如下: 在CSS样式表中找到标题的选择器,可以是、等标签,也可以是通过class或id属性来选择...' data-url="https://worktile.com/kb/ask/800380.html">7</a> */
-          padding: 12px 0;        /* 垂直间距 */
-          background: inherit;    /* 继承容器背景色 */
-          color: #333;            /* 文字颜色 */
-          margin-top: -4px;       /* 消除iframe默认间距 */
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+        background: #f8f9fa;  /* 与视频模块背景一致<a target="_blank" href="https://mbd.baidu.com/newspage/data/dtlandingsuper?nid=dt_4936040231420134974" class="hitref" data-title="🎉一行代码搞定5种CSS布局" data-snippet='🎉一行代码搞定5种CSS布局! 📌页面布局是CSS开发的基础,也是关键功能之一。以下5种经典布局,掌握后能应对大部分页面需求。这些布局都是自适应的,适合桌面和移动设备。 1️⃣ ...' data-url="https://mbd.baidu.com/newspage/data/dtlandingsuper?nid=dt_4936040231420134974">6</a> */
+        color: #333;
+        position: relative;
+        z-index: 2;
+        margin: 0;
     }
-    /* 新增父级定位 */
+    /* 新增弹性布局 */
     .video-card {
-        position: relative; /* 关键修复点<a target="_blank" href="https://blog.csdn.net/huang3513/article/details/144977046" class="hitref" data-title="为什么页面无法正确显示?都有哪些HTML和CSS相关问题?" data-snippet='页面无法正确显示可能由多种原因导致,通常与HTML和CSS的结构、语法错误、浏览器兼容性、资源加载等问题有关。以下是一些常见的原因及其解决方法,结合实际项目代...' data-url="https://blog.csdn.net/huang3513/article/details/144977046">6</a> */
+        display: flex;           /* 启用弹性布局<a target="_blank" href="https://zhidao.baidu.com/question/1767475906040127188.html" class="hitref" data-title="需要网页居中CSS代码 - 百度知道" data-snippet='若要使网页内容居中，可以使用以下CSS代码：css body { display: flex;justify-content: center;align-items: center;height: 100vh;margin: 0;} 这段代码使用了Fl...' data-url="https://zhidao.baidu.com/question/1767475906040127188.html">2</a> */
+        flex-direction: column;  /* 垂直排列子元素 */
+        justify-content: space-between; /* 标题底部对齐 */
+        position: relative;
+        border-radius: 12px;
+        overflow: visible;       /* 允许标题溢出可见<a target="_blank" href="https://mbd.baidu.com/newspage/data/dtlandingsuper?nid=dt_4936040231420134974" class="hitref" data-title="🎉一行代码搞定5种CSS布局" data-snippet='🎉一行代码搞定5种CSS布局! 📌页面布局是CSS开发的基础,也是关键功能之一。以下5种经典布局,掌握后能应对大部分页面需求。这些布局都是自适应的,适合桌面和移动设备。 1️⃣ ...' data-url="https://mbd.baidu.com/newspage/data/dtlandingsuper?nid=dt_4936040231420134974">6</a> */
+        aspect-ratio: 16/9;
+        background: #000;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
     }
+    /* 其余未修改样式保持原样 */
     .module-tip {
         position: absolute;
         bottom: -30px;
@@ -36,51 +47,35 @@
         border-radius: 4px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-
     .video-loader {
-        display: none; /* 默认隐藏加载动画 */
-        /* 原有样式保持不变 */
+        display: none;
     }
-
     .video-card:hover .video-loader {
-        display: block; /* 悬停时显示加载动画 */
+        display: block;
     }
-
     .video-iframe {
         opacity: 0;
         transition: opacity 0.3s ease;
+        width: 100%;             /* 保证iframe宽度适配<a target="_blank" href="https://blog.csdn.net/sinat_34896766/article/details/136399969" class="hitref" data-title="css实现居中_css视频居中-CSDN博客" data-snippet='css实现居中 基础代码: css实现居中的几种方式: 1、flex布局(水平垂直) .box { width: 200px; height: 200px; background-color: pink; display: flex; justify-content: c...' data-url="https://blog.csdn.net/sinat_34896766/article/details/136399969">4</a> */
+        height: 100%;
     }
-
     .video-card:hover .video-iframe {
         opacity: 1;
     }
-    /* 视频模块高级样式 */
     .video-section {
         background: #f8f9fa;
         padding: 4rem 0;
     }
-    .video-card {
-        position: relative;
-        border-radius: 12px;
-        overflow: hidden;
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        aspect-ratio: 16/9;
-        background: #000;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    }
-
     .video-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 12px 40px rgba(0,0,0,0.15);
     }
-
     .video-thumbnail {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: opacity 0.3s ease;
     }
-    /* 全屏模式 */
     .fullscreen-mode {
         position: fixed;
         top: 0;
@@ -92,7 +87,6 @@
         padding: 2rem;
         overflow-y: auto;
     }
-
     .fullscreen-header {
         display: flex;
         justify-content: space-between;
@@ -100,24 +94,18 @@
         max-width: 1400px;
         margin: 0 auto 2rem;
     }
-
-    /* 导航栏激活状态 */
     #nav li a.active {
         color: #2ecc71 !important;
         border-bottom: 2px solid;
     }
-
-    /* 响应式设计 */
     @media (max-width: 768px) {
         .video-grid {
             grid-template-columns: 1fr;
         }
-        
         #header .bottom {
             padding: 1rem;
         }
     }
-    /* 新增加载动画样式 */
     .video-loader {
         position: absolute;
         top: 50%;
@@ -131,114 +119,14 @@
         animation: spin 1s linear infinite;
         z-index: 2;
     }
-
     @keyframes spin {
         0% { transform: translate(-50%, -50%) rotate(0deg); }
         100% { transform: translate(-50%, -50%) rotate(360deg); }
     }
-    /* 新版式设计参考<a target="_blank" href="https://www.163.com/dy/article/JEB2GDS805568W0A.html" class="hitref" data-title="优秀网页版式设计参考_网易订阅" data-snippet='优秀网页版式设计参考~ 优秀网页版式设计参考~ 特别声明:以上内容(如有图片或视频亦包括在内)为自媒体平台“网易号”用户上传并发布,本平台仅提供信息存储服务。 Notice: Th...' data-url="https://www.163.com/dy/article/JEB2GDS805568W0A.html">4</a><a target="_blank" href="https://baijiahao.baidu.com/s?id=1795095359510326468&wfr=spider&for=pc" class="hitref" data-title="网页设计模板范例" data-snippet='1. 选择合适的颜色和字体：一个好的网页设计应该有一个统一的颜色和字体方案。首先，选择主要颜色，然后再选择一到两种辅助颜色。这些颜色可以在整个网页中运用，以强调重要内...' data-url="https://baijiahao.baidu.com/s?id=1795095359510326468&wfr=spider&for=pc">7</a> */
     :root {
-        --primary: #2F3437; /* 主色调 */
-        --accent: #FF6B6B; /* 强调色 */
-        --text: #F5F5F5; /* 文字色 */
-    }
-
-    /* 现代化布局<a target="_blank" href="https://js.design/special/resource-tag/webpage-design.html" class="hitref" data-title="网页设计-网页设计模板大全-即时设计" data-snippet='网页设计收录了一些优质的网页设计模板资源,包含了社交网页设计、数字化网页设计、小清新简约网页设计、汽车网页设计,帮您在做网页设计时提供一些思路。' data-url="https://js.design/special/resource-tag/webpage-design.html">6</a><a target="_blank" href="http://uuhy.com/html/27984.html" class="hitref" data-title="18个时尚现代的网页设计模板参考 | 创意悠悠花园" data-snippet='关于网页的设计随着技术和时尚的变迁,其实风格也会在不断的变化,那么最近你的设计理念是什么呢?今天收集分享:18个时尚现代的网页设计模板参考,希望其中有你喜欢和需要的,或者...' data-url="http://uuhy.com/html/27984.html">10</a> */
-    .video-section {
-        background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-        padding: 4rem 5%;
-    }
-
-    .video-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 2.5rem;
-        max-width: 1440px;
-        margin: 0 auto;
-    }
-
-    /* 卡片设计改进<a target="_blank" href="https://baijiahao.baidu.com/s?id=1795095359510326468&wfr=spider&for=pc" class="hitref" data-title="网页设计模板范例" data-snippet='1. 选择合适的颜色和字体：一个好的网页设计应该有一个统一的颜色和字体方案。首先，选择主要颜色，然后再选择一到两种辅助颜色。这些颜色可以在整个网页中运用，以强调重要内...' data-url="https://baijiahao.baidu.com/s?id=1795095359510326468&wfr=spider&for=pc">7</a><a target="_blank" href="http://uuhy.com/html/27984.html" class="hitref" data-title="18个时尚现代的网页设计模板参考 | 创意悠悠花园" data-snippet='关于网页的设计随着技术和时尚的变迁,其实风格也会在不断的变化,那么最近你的设计理念是什么呢?今天收集分享:18个时尚现代的网页设计模板参考,希望其中有你喜欢和需要的,或者...' data-url="http://uuhy.com/html/27984.html">10</a> */
-    .video-card {
-        position: relative;
-        border-radius: 16px;
-        overflow: hidden;
-        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-        background: rgba(255,255,255,0.05);
-        backdrop-filter: blur(10px);
-    }
-
-    .video-card:hover {
-        transform: translateY(-8px) scale(1.02);
-    }
-
-    /* 标题样式优化<a target="_blank" href="https://baijiahao.baidu.com/s?id=1795095359510326468&wfr=spider&for=pc" class="hitref" data-title="网页设计模板范例" data-snippet='1. 选择合适的颜色和字体：一个好的网页设计应该有一个统一的颜色和字体方案。首先，选择主要颜色，然后再选择一到两种辅助颜色。这些颜色可以在整个网页中运用，以强调重要内...' data-url="https://baijiahao.baidu.com/s?id=1795095359510326468&wfr=spider&for=pc">7</a><a target="_blank" href="https://www.51miz.com/so-sucai/177325.html" class="hitref" data-title="网页设计-网页设计图片-网页设计模板-觅知网" data-snippet='觅知网为您找到1100个原创网页设计图片,包括网页设计图片,网页设计素材,网页设计海报,网页设计背景,网页设计模板源文件下载服务,包含PSD、PNG、JPG、AI、CDR等格式素材,更多关...' data-url="https://www.51miz.com/so-sucai/177325.html">9</a> */
-    .video-title {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 1.5rem;
-        margin: 0;
-        color: var(--text);
-        font: 500 1.4em/1.2 'Microsoft YaHei', sans-serif;
-        background: linear-gradient(transparent 0%, rgba(0,0,0,0.8) 100%);
-        z-index: 10;
-        transition: opacity 0.3s;
-    }
-
-    /* 封面交互优化<a target="_blank" href="https://js.design/special/resource-tag/web-template.html" class="hitref" data-title="网页设计模板-网页设计模板素材-免费网页模板-即时设计" data-snippet='网页设计模板网站提供了多种类型的免费网页模板,例如家居类免费网页模板,教育类免费网页设计模板等。设计师访问网页设计模板网站之后,不仅可以免费使用网站提供的网页设计模...' data-url="https://js.design/special/resource-tag/web-template.html">1</a><a target="_blank" href="https://www.shetu66.com/so-guanggao/wangyeshejimuban/" class="hitref" data-title="网页设计模板-网页设计模板设计-网页设计模板下载-设图网" data-snippet='设图网精选125个网页设计模板供您下载,包括网页设计模板图片、网页设计模板素材、网页设计模板背景、网页设计模板矢量图、网页设计模板元素等素材,更多网页设计模板素材下载...' data-url="https://www.shetu66.com/so-guanggao/wangyeshejimuban/">5</a> */
-    .video-thumbnail {
-        width: 100%;
-        height: 480px;
-        object-fit: cover;
-        transition: opacity 0.3s;
-    }
-
-    .video-card:hover .video-thumbnail {
-        opacity: 0.2;
-    }
-
-    /* 视频容器优化 */
-    .video-iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-        opacity: 0;
-        transition: opacity 0.3s;
-        z-index: 5;
-    }
-    .video-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
-    }
-    .video-card:hover .video-iframe {
-        opacity: 1;
-    }
-
-    /* 全局提示样式<a target="_blank" href="https://baijiahao.baidu.com/s?id=1795095359510326468&wfr=spider&for=pc" class="hitref" data-title="网页设计模板范例" data-snippet='1. 选择合适的颜色和字体：一个好的网页设计应该有一个统一的颜色和字体方案。首先，选择主要颜色，然后再选择一到两种辅助颜色。这些颜色可以在整个网页中运用，以强调重要内...' data-url="https://baijiahao.baidu.com/s?id=1795095359510326468&wfr=spider&for=pc">7</a> */
-    .video-tip {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        color: var(--text);
-        font-size: 0.9em;
-        opacity: 0.8;
-        z-index: 100;
-    }
-    .video-container {
-          position: relative;
-          display: flex;          /* 启用弹性布局<a target="_blank" href="https://blog.csdn.net/sinat_34896766/article/details/136399969" class="hitref" data-title="css实现居中_css视频居中-CSDN博客" data-snippet='css实现居中的几种方式: 1、flex布局(水平垂直) .box { width: 200px; height: 200px; background-color: pink; display: flex; justify-content: center; align-items: cent...' data-url="https://blog.csdn.net/sinat_34896766/article/details/136399969">5</a> */
-          flex-direction: column; /* 垂直排列子元素 */
-          align-items: center;    /* 水平居中<a target="_blank" href="https://blog.csdn.net/sinat_34896766/article/details/136399969" class="hitref" data-title="css实现居中_css视频居中-CSDN博客" data-snippet='css实现居中的几种方式: 1、flex布局(水平垂直) .box { width: 200px; height: 200px; background-color: pink; display: flex; justify-content: center; align-items: cent...' data-url="https://blog.csdn.net/sinat_34896766/article/details/136399969">5</a> */
-          background: inherit;    /* 继承父级背景色 */
+        --primary: #2F3437;
+        --accent: #FF6B6B;
+        --text: #F5F5F5;
     }
     </style>
 </head>
