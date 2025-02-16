@@ -289,32 +289,6 @@
 
 <script>
 
-// 修复导航栏点击跳转问题
-document.querySelectorAll('#nav a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault(); // 阻止默认跳转
-        const targetId = this.getAttribute('href'); // 获取要跳转的区域id
-        
-        // 找到对应的内容区域
-        const targetSection = document.querySelector(targetId);
-        if (!targetSection) return;
-
-        // 计算导航栏高度补偿（重要！解决遮挡问题）
-        const header = document.getElementById('header');
-        const adjustHeight = header.offsetHeight + 20; // 20像素安全距离
-
-        // 精准滚动到目标位置
-        window.scrollTo({
-            top: targetSection.offsetTop - adjustHeight,
-            behavior: 'smooth' // 带平滑滚动效果
-        });
-
-        // 立即切换按钮激活状态
-        document.querySelectorAll('#nav a').forEach(a => a.classList.remove('active'));
-        this.classList.add('active');
-    });
-});
-
 // 自动检测滚动位置（自动高亮对应导航按钮）
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section'); // 所有内容区块
