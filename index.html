@@ -289,7 +289,7 @@
 
 <script>
 
-// 修复导航栏点击跳转问题（小白直接复制这段）
+// 修复导航栏点击跳转问题
 document.querySelectorAll('#nav a').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault(); // 阻止默认跳转
@@ -301,7 +301,7 @@ document.querySelectorAll('#nav a').forEach(link => {
 
         // 计算导航栏高度补偿（重要！解决遮挡问题）
         const header = document.getElementById('header');
-        const adjustHeight = header.offsetHeight + 15; // 15像素安全距离
+        const adjustHeight = header.offsetHeight + 20; // 20像素安全距离
 
         // 精准滚动到目标位置
         window.scrollTo({
