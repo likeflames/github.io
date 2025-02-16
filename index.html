@@ -20,11 +20,18 @@
             --shadow: rgba(0, 0, 0, 0.1); /* 阴影颜色 */
         }
 
-        h2 {
-            /* 这里设置下划线的样式，颜色为绿色，样式为实线，宽度为2px，你可以根据需求调整 */
-            border-bottom: 1px solid green;
-            display: inline-block;
-            /* 如果你希望小标题是行内块元素，添加此属性，这样下划线不会撑满整行 */
+        strong {
+            font-weight: 900; /* 设置字体粗细为 900，这是最粗的级别，你可以根据需求调整 */
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -10px; /* 调整这个值可以改变下划线与文本的距离，值越大距离越远 */
+            width: 50%; /* 让下划线长度为文本的一半 */
+            height: 2px;
+            background-color: green;
         }
         
         html {
