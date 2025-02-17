@@ -2248,7 +2248,7 @@ input, select, textarea {
 
 			#main > section.one {
 				background-color: #81918E;
-				background-image: url("../images/banner.jpg");
+				background-image: url("/images/banner.jpg");
 				background-size: cover;
     				background-position: center;
    				 /* 可以添加备用的背景尺寸 */
@@ -2258,15 +2258,15 @@ input, select, textarea {
 			}
 
 			#main > section.two {
-				background-color: #6DB7FF;
+				background-color: #f5fafa;
 			}
 
 			#main > section.three {
-				background-color: #FFB66D;
+				background-color: #ecf1f1;
 			}
 
 			#main > section.four {
-				background-color: #6DB7FF;
+				background-color: #e8edec;
 			}
 
 /* Wide */
