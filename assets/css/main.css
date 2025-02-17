@@ -2248,7 +2248,7 @@ input, select, textarea {
 
 			#main > section.one {
 				background-color: #81918E;
-				background-image: url("https://github.com/likeflames/likeflames.github.io/blob/main/images/banner.jpg");
+				background-image: url("../images/banner.jpg");
 				background-size: cover;
     				background-position: center;
    				 /* 可以添加备用的背景尺寸 */
