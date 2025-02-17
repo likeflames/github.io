@@ -2650,10 +2650,6 @@ input, select, textarea {
     border-left: 3px solid orange !important;
     color: white !important;
 }
-#nav ul li a.active {
-  border-left: 3px solid #FFA500 !important;
-  background: rgba(255,165,0,0.1) !important;
-}
 /* 按钮悬停效果 */
 .button:hover {
   background-color: #FF8C00 !important;
@@ -2706,7 +2702,4 @@ section {
     color: white;
     border: none;
     cursor: pointer;
-}
-section {
-    scroll-margin-top: 60px !important;
 }
