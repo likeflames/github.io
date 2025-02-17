@@ -500,23 +500,24 @@
 
     // 表单提交功能
     document.querySelector('form').addEventListener('submit', function (e) {
-        // 阻止表单默认提交行为
         e.preventDefault();
-        // 使用 fetch API 发送表单数据
         fetch(this.action, {
             method: 'POST',
             body: new FormData(this),
             headers: { 'Accept': 'application/json' }
         })
-        .then(() => {
-            // 发送成功后弹出提示框
+       .then(response => {
+            if (!response.ok) {
+                throw new Error('发送失败，请检查网络或服务器状态');
+            }
+            return response.json();
+        })
+       .then(() => {
             alert('消息已发送！');
-            // 清空表单内容
             this.reset();
         })
-        .catch(() => {
-            // 发送失败时弹出错误提示框
-            alert('发送失败，请检查网络');
+       .catch(error => {
+            alert(error.message);
         });
     });
 
