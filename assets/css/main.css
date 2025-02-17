@@ -2248,7 +2248,13 @@ input, select, textarea {
 
 			#main > section.one {
 				background-color: #81918E;
-				background-image: url("../../images/banner.jpg");
+				background-image: url("/images/banner.jpg");
+				background-size: cover;
+    				background-position: center;
+   				 /* 可以添加备用的背景尺寸 */
+  				background-size: -webkit-cover; 
+    				background-size: -moz-cover;
+    				background-size: -o-cover;
 			}
 
 			#main > section.two {
@@ -2617,7 +2623,13 @@ input, select, textarea {
 				#main section.cover header {
 					padding: 0 1em;
 				}
-
+			#main > section.one {
+       				background-color: #81918E;
+       				background-image: url('/images/banner.jpg');
+       				background-size: contain;
+        			background-repeat: no-repeat;
+        			background-position: center;
+    			}
 		/* Footer */
 
 			#footer .copyright li {
