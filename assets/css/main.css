@@ -2268,6 +2268,9 @@ input, select, textarea {
 			#main > section.four {
 				background-color: #e8edec;
 			}
+			#main > section.three h2 {
+    				color: white;
+			}
 
 /* Wide */
 
